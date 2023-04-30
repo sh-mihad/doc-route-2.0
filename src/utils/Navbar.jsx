@@ -1,10 +1,11 @@
+import { Link } from "react-router-dom";
+
 const Navbar = () => {
 
   const menuList = <>
-   <li ><a>Submenu 1</a></li>
-   <li><a>Submenu 2</a></li>
-   <li><a>Submenu 3</a></li>
-   <li><a>Submenu 4</a></li>
+   <li ><Link to="/">Home</Link></li>
+   <li ><Link to="/doctors">Doctors</Link></li>
+   <li ><Link to="/add-doctor">Add Doctor</Link></li>
   </>
 
     return (
@@ -30,7 +31,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <button className="px-8 py-2 border border-gray-500">Login / Register</button>
+          <Link to="/login"><button className="px-8 py-2 border border-gray-500 hover:bg-black hover:text-white duration-300">Login / Register</button></Link>
         </div>
       </div>
     );

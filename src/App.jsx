@@ -1,22 +1,28 @@
 
 import './App.css'
-import Home from './Pages/Home/Home'
-import Navbar from './utils/Navbar'
-import Footer from './compontents/Footer/Footer'
-import Login from './utils/Login'
-
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from './Pages/Home/Home';
+import Main from './Layout/Main';
+import Login from './utils/Login';
+import Register from './utils/Register';
+import Doctors from './Pages/Doctors/Doctors';
+import AddDoctor from './Pages/AddDoctor/AddDoctor';
 
 function App() {
-  
+
 
   return (
-    <>
-    <Navbar/>
-    {/* <Home/> */}
-    <Login/>
-    <Footer/>
-    </>
+    <BrowserRouter>
+      <Routes>
+       <Route path='/' element={<Main />}>
+        <Route path='/' element={<Home/>} />
+        <Route path='/doctors' element={<Doctors/>} />
+        <Route path='/add-doctor' element={<AddDoctor/>} />
+        <Route path='/login' element={<Login/>} />
+        <Route path='/register' element={<Register/>} />
+       </Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
 
