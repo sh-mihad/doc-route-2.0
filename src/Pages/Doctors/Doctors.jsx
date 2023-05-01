@@ -1,8 +1,24 @@
+import { useGetDoctorsQuery } from "../../fetures/doctorsApi/doctorsApi";
 import DoctorItem from "./DoctorItem";
 
 
 
 const Doctors = () => {
+    const {data:doctors,isLoading,isError} = useGetDoctorsQuery()
+//    console.log(doctors);
+    let content = null
+    if(isLoading){
+          content = <div>Loading...</div>
+    }
+    if(!isLoading && isError){
+        content = <div className="text-red-600 text-xl font-bold text-center">There was an error!</div>
+    }
+    if(!isLoading && !isError && !doctors?.length>0){
+        content = <div className="text-red-600 text-xl font-bold text-center">No Data Found</div>
+    }
+    if(!isLoading && !isError && doctors?.length>0){
+        content = doctors?.map((doctor,index)=><DoctorItem doctor={doctor} key={index}/>)
+    }
     return (
         <div className="flex gap-5 my-10 mx-10 ">
 
@@ -52,7 +68,9 @@ const Doctors = () => {
             </div>
 
             <div className="w-full ">
-                <DoctorItem/>
+               {
+                content
+               }
             </div>
         </div>
     );

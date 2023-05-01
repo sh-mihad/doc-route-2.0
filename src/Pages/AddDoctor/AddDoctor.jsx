@@ -1,20 +1,37 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { Link, useNavigate } from "react-router-dom";
+import { UserAuth } from "../../context/authProvider";
+import { toast } from "react-hot-toast";
+import { useAddDoctorMutation } from "../../fetures/doctorsApi/doctorsApi";
 
 const AddDoctor = () => {
     
     const [loading,setLoading] =useState(false)
-    const { register, handleSubmit, formState: { errors }, } = useForm()
-    
+    const { register, handleSubmit, formState: { errors },reset } = useForm()
+    const { createUserAccount, updateName} = useContext(UserAuth)
+    const [addDoctor,{isSuccess}]= useAddDoctorMutation()
+    const navigate = useNavigate()
 
+
+    useEffect(() => {
+
+        if (isSuccess === true) {
+            setLoading(false)
+            reset()
+            navigate('/')
+        }
+    }, [isSuccess, reset,navigate])
 
     const submitForm = (data) => {
         setLoading(true)
         const name = data.name
+        const email = data.email
         const certificate = data.certificate
         const gender = data.gender
         const adress = data.adress
         const specialist = data.specialist
+        const password = data.password
         
 
         //  host image in server
@@ -26,29 +43,71 @@ const AddDoctor = () => {
         })
         .then(response => response.json())
         .then(result=>{
-            setLoading(false)
-            console.log( result.data.display_url);
+            const image = result.data.display_url
+            if (result.success) {
+                createUserAccount(email, password)
+                    .then(res => {
+                         
+                         res.user
+                        updateName(name, image)
+                            .then(() => {
+                                const currentUser = {
+                                    name,
+                                    email,
+
+                                }
+
+                                const doctorData = {
+                                    name,
+                                    certificate,
+                                    email,
+                                    gender,
+                                    adress,
+                                    specialist,
+                                    image:result.data.display_url
+                        
+                                }
+
+                                addDoctor(doctorData)
+                                
+
+                            })
+                            .catch(err => {
+                                setLoading(false)
+                                toast.error(err.message.slice(18,-1))
+                            })
+                    })
+                    .catch(err => {
+                        setLoading(false)
+                        toast.error(err.message.slice(22,-2))
+                    })
+            }
+          
+            
         })
 
-        const doctorData = {
-            name,
-            certificate,
-            gender,
-            adress,
-            specialist,
-
-        }
-        console.log(doctorData);
+        
     }
 
     return (
         <div className="border border-gray-300 p-10 m-10 rounded-md">
-            <p>Add a Doctor</p>
+            <div className="flex items-center justify-between text-lg font-semibold text-gray-600">
+                    <p>Doctor Register</p>
+                    <Link to="/register"> <p className="text-cyan-500">Not a Doctor?</p></Link>
+                </div>
             <form onSubmit={handleSubmit(submitForm)}>
                 <input type="text" className="w-full border mt-5 border-gray-600 p-2 rounded-md" placeholder="Doctor Name" {...register("name", {
                     required: "Invalid Name Fild",
                 })} />
                 {errors.name && <p className='text-sm mt-2 text-red-700'>{errors.name.message}</p>}
+                <input type="email" className="w-full border mt-5 border-gray-600 p-2 rounded-md" placeholder="Email " {...register("email", {
+                    required: "Invalid Name Fild",
+                })} />
+                {errors.email && <p className='text-sm mt-2 text-red-700'>{errors.email.message}</p>}
+                <input type="password" className="w-full border mt-5 border-gray-600 p-2 rounded-md" placeholder="Password " {...register("password", {
+                    required: "Invalid Name Fild",
+                })} />
+                {errors.password && <p className='text-sm mt-2 text-red-700'>{errors.password.message}</p>}
                 <input type="text" className="w-full border mt-5 border-gray-600 p-2 rounded-md" placeholder="Title and Certificate" id=""  {...register("certificate", {
                     required: "Invalid this Fild",
 
@@ -75,11 +134,11 @@ const AddDoctor = () => {
 
                 })}>
                     <option value="" hidden>Select specialist </option>
-                    <option value="Male">Uroloy </option>
-                    <option value="Female">Neorology</option>
-                    <option value="Others">Dentist</option>
-                    <option value="Others">Orthopedic</option>
-                    <option value="Others">Cardiologist</option>
+                    <option value="urology">Urology </option>
+                    <option value="neorology">Neorology</option>
+                    <option value="Dentist">Dentist</option>
+                    <option value="Orthopedic">Orthopedic</option>
+                    <option value="Cardiologist">Cardiologist</option>
                 </select>
                 {errors.specialist && <p className='text-sm mt-2 text-red-700'>{errors.specialist.message}</p>}
                 <label className="label">

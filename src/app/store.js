@@ -1,8 +1,9 @@
-import { configureStore } from '@reduxjs/toolkit'
-import counterReducer from '../fetures/counter/counterSlice'
+import { configureStore } from "@reduxjs/toolkit";
+import apiSlice from "../fetures/api/apiSlice"
 
 export const store = configureStore({
-  reducer: {
-    counter : counterReducer
-  },
+    reducer:{
+        [apiSlice.reducerPath]:apiSlice.reducer
+    },
+    middleware:(getDefaultMiddlewares)=>getDefaultMiddlewares().concat(apiSlice.middleware)
 })
