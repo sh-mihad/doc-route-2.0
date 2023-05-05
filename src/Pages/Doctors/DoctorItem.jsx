@@ -5,6 +5,7 @@ import orthopedicLogo from "../../assets/services/orthopedic.png";
 import urologyLogo from "../../assets/services/urology.png";
 import { AiFillStar } from "react-icons/ai";
 import { IoLocationSharp } from "react-icons/io5";
+import { Link } from "react-router-dom";
 const dentist = dentistLogo
 const cardiologist = cardiologistLogo
 const neurology = neurologyLogo
@@ -55,7 +56,7 @@ const DoctorItem = ({ doctor }) => {
                 </div>
             </div>
             <div className="flex gap-3 flex-col">
-                <button className="border hover:bg-blue-500 hover:text-white duration-200 border-blue-500 px-10 py-3">View Profile</button>
+                <Link to={`/doctor/profile/1`} className="border text-center hover:bg-blue-500 hover:text-white duration-200 border-blue-500 px-10 py-3">View Profile</Link>
                 <button className="border bg-blue-500 hover:bg-blue-400 duration-200 text-white  px-10 py-3">Book Appoienment</button>
             </div>
         </div>

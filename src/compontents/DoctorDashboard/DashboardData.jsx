@@ -1,6 +1,7 @@
 import avatar from "../../assets/doctor/doctor-thumb-01.jpg"
 import { MdRemoveRedEye } from "react-icons/md";
 import { RxCross2,RxCheck } from "react-icons/rx";
+import PateintModal from "./PateintModal";
 
 
 const DashboardData = () => {
@@ -48,15 +49,19 @@ const DashboardData = () => {
                                 $150
                                 </td>
                                 <td className="flex gap-3  items-center mt-2">
-                                    <button className="px-3  bg-blue-200 text-blue-500 rounded-xl flex gap-1 items-center"> <MdRemoveRedEye/>Show Details</button>
+                                    <label htmlFor="my-modal-3" className="px-3  bg-blue-200     text-blue-500 rounded-xl flex gap-1 items-center"> <MdRemoveRedEye/>Show Details</label>
+                                    {/* <label htmlFor="my-modal-3" className="btn">open modal</label> */}
                                     <button className="px-3 bg-green-200 text-green-500 rounded-xl flex gap-1 items-center"><RxCheck/> Done</button>
                                     <button className="px-3 bg-red-300 text-red-500 rounded-xl flex gap-1 items-center"><RxCross2/> Cancel</button>
                                 </td>
                             </tr>
+                           
                         </tbody>
                     </table>
+
                 </div>
             </div>
+            <PateintModal/>
         </div>
     );
 };

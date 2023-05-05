@@ -12,6 +12,7 @@ import DashboardData from './compontents/DoctorDashboard/DashboardData';
 import DoctorAllAppoienments from './Pages/Dashboard/DoctorAllAppoienments';
 import DoctorScheduleTimings from './Pages/Dashboard/DoctorScheduleTimings';
 import DoctorProfileSettings from './Pages/Dashboard/DoctorProfileSettings';
+import DoctorProfile from './Pages/DoctorProfile/DoctorProfile';
 
 
 
@@ -29,7 +30,9 @@ function App() {
           <Route path='/add-doctor' element={<AddDoctor />} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
+          <Route path={`/doctor/profile/:id`} element={<DoctorProfile/>} />
         </Route>
+      
         <Route path='/dashboard' element={<Dashboard />}>
           <Route path='/dashboard' element={<DoctorDashboard />}>
             <Route index  element={<DashboardData/>}/>
