@@ -13,6 +13,8 @@ import DoctorAllAppoienments from './Pages/Dashboard/DoctorAllAppoienments';
 import DoctorScheduleTimings from './Pages/Dashboard/DoctorScheduleTimings';
 import DoctorProfileSettings from './Pages/Dashboard/DoctorProfileSettings';
 import DoctorProfile from './Pages/DoctorProfile/DoctorProfile';
+import Appoienment from './compontents/Appoienment/Appoienment';
+import AppoienmentPage from './Pages/Appoientment/AppoienmentPage';
 
 
 
@@ -31,6 +33,7 @@ function App() {
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
           <Route path={`/doctor/profile/:id`} element={<DoctorProfile/>} />
+          <Route path={`/appoienent/:id`} element={<AppoienmentPage/>} />
         </Route>
       
         <Route path='/dashboard' element={<Dashboard />}>
