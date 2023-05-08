@@ -23,7 +23,7 @@ const iconArr = [
 
 
 const DoctorItem = ({ doctor }) => {
-    const { name, certificate, specialist, adress, image } = doctor || {}
+    const { _id,name, certificate, specialist, adress, image } = doctor || {}
     // console.log(specialist.toLowerCase());
     const categoryIcon = iconArr.find(icon => icon.name === specialist.toLowerCase())
     
@@ -56,7 +56,7 @@ const DoctorItem = ({ doctor }) => {
                 </div>
             </div>
             <div className="flex gap-3 flex-col">
-                <Link to={`/doctor/profile/1`} className="border text-center hover:bg-blue-500 hover:text-white duration-200 border-blue-500 px-10 py-3">View Profile</Link>
+                <Link to={`/doctor/profile/${_id}`} className="border text-center hover:bg-blue-500 hover:text-white duration-200 border-blue-500 px-10 py-3">View Profile</Link>
                 <Link to={`/appoienent/1`} className="border bg-blue-500 hover:bg-blue-400 duration-200 text-white  px-10 py-3">Book Appoienment</Link>
             </div>
         </div>

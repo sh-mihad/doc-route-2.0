@@ -4,7 +4,7 @@ import DoctorItem from "./DoctorItem";
 
 
 const Doctors = () => {
-    const {data:doctors,isLoading,isError} = useGetDoctorsQuery()
+    const {data:doctors,isLoading,isError,} = useGetDoctorsQuery()
 //    console.log(doctors);
     let content = null
     if(isLoading){

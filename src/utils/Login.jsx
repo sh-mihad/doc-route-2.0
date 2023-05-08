@@ -25,13 +25,16 @@ const Login = () => {
         <div className="block lg:flex items-center mx-10 ">
             <img src={loginBanner} alt="" className="w-2/4 hidden lg:block" />
             <div className="border border-gray-300 p-10 block lg:w-2/4 lg:mx-10 mt-5 rounded-md">
-                <p>Login Doc Route</p>
+            <div className="flex items-center justify-between text-lg font-semibold text-gray-600">
+                    <p>Petaint Login</p>
+                    <Link to="/doctor/login"> <p className="text-cyan-500">Are you a Doctor?</p></Link>
+                </div>
                 <form onSubmit={handleSubmit(submitForm)} >
                     <input type="email" name="email" className="w-full border my-5 border-gray-600 p-2 rounded-md" placeholder="Enter Email" id=""  {...register("email", {
                         required: "This is requerd fild"
                     })}  />
                     {errors.email && <p className='text-sm mt-2 text-red-700'>{errors.email.message}</p>}
-                    <input type="password" name="password" className="w-full border border-gray-600 p-2 rounded-md" placeholder="Enter Email" id=""  {...register("password", {
+                    <input type="password" name="password" className="w-full border border-gray-600 p-2 rounded-md" placeholder="Enter Password" id=""  {...register("password", {
                         required: "This is requerd fild"
                     })}  />
                     <button type="submit" className="w-full my-5 py-2 text-white rounded-md bg-green-400">Login</button>

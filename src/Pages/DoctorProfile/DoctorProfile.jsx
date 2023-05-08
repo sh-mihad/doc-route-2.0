@@ -5,7 +5,10 @@ import { IoLocationSharp } from "react-icons/io5";
 import EducationSection from "../../compontents/DoctorDashboard/EducationSection";
 import WorkSection from "../../compontents/DoctorDashboard/WorkSection";
 import { BsArrowRight } from "react-icons/bs";
+// import { useGetDoctorDataQuery } from "../../fetures/doctorsApi/doctorsApi";
 const DoctorProfile = () => {
+    // const {data:doctor} = useGetDoctorDataQuery()
+    // console.log(doctor);
     return (
         <div className="w-full m-5 lg:w-10/12 lg:mx-auto my-10">
             <div className="w-full  flex gap-5 mb-5 p-6 border border-gray-300  rounded-md justify-between">
@@ -52,11 +55,11 @@ const DoctorProfile = () => {
                                 className="grid grid-cols-1   text-blue-50  "
                             >
                                 {/* <!-- right --> */}
-                               
-                                <EducationSection/>
-                                <EducationSection/>
-                                <EducationSection/>
-                               
+
+                                <EducationSection />
+                                <EducationSection />
+                                <EducationSection />
+
                             </div>
                         </div>
                     </div>
@@ -68,9 +71,9 @@ const DoctorProfile = () => {
                                 className="grid grid-cols-1   text-blue-50  "
                             >
                                 {/* <!-- right --> */}
-                               
-                                <WorkSection/>
-                                <WorkSection/>                              
+
+                                <WorkSection />
+                                <WorkSection />
                             </div>
                         </div>
                     </div>
@@ -78,9 +81,9 @@ const DoctorProfile = () => {
                     {/* Services  */}
                     <h5 className="text-lg font-bold my-3 text-center lg:text-start  text-gray-700">Services</h5>
                     <ul className="flex flex-col gap-3 leading-tight text-justify">
-                        <li className="flex gap-1"><BsArrowRight/> Tooth cleaning</li>
-                        <li  className="flex gap-1"><BsArrowRight/>Root Canal Therapy</li>
-                        <li  className="flex gap-1"><BsArrowRight/>Fissure Sealants</li>
+                        <li className="flex gap-1"><BsArrowRight /> Tooth cleaning</li>
+                        <li className="flex gap-1"><BsArrowRight />Root Canal Therapy</li>
+                        <li className="flex gap-1"><BsArrowRight />Fissure Sealants</li>
                     </ul>
                 </div>
             </div>
