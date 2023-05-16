@@ -3,14 +3,16 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { UserAuth } from "../../context/authProvider";
 import { toast } from "react-hot-toast";
-import { useAddDoctorMutation } from "../../fetures/doctorsApi/doctorsApi";
+import { useAddUserMutation } from "../../fetures/usersApi/usersApi";
+import Loading from "../../utils/Loading";
+
 
 const AddDoctor = () => {
     
     const [loading,setLoading] =useState(false)
     const { register, handleSubmit, formState: { errors },reset } = useForm()
     const { createUserAccount, updateName} = useContext(UserAuth)
-    const [addDoctor,{isSuccess}]= useAddDoctorMutation()
+    const [addUser,{isSuccess}] = useAddUserMutation()
     const navigate = useNavigate()
 
 
@@ -51,11 +53,6 @@ const AddDoctor = () => {
                          res.user
                         updateName(name, image)
                             .then(() => {
-                                const currentUser = {
-                                    name,
-                                    email,
-
-                                }
 
                                 const doctorData = {
                                     name,
@@ -64,11 +61,13 @@ const AddDoctor = () => {
                                     gender,
                                     adress,
                                     specialist,
-                                    image:result.data.display_url
+                                    image:result.data.display_url,
+                                    category:"doctor",
+                                    status : "pending"
                         
                                 }
 
-                                addDoctor(doctorData)
+                                addUser(doctorData)
                                 
 
                             })
@@ -88,6 +87,10 @@ const AddDoctor = () => {
 
         
     }
+
+   if(loading){
+    return <Loading/>
+   }
 
     return (
         <div className="border border-gray-300 p-10 m-10 rounded-md">

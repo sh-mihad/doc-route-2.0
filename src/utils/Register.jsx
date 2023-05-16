@@ -1,29 +1,41 @@
+import Loading from "../utils/Loading"
 import { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import loginBanner from "../assets/login-banner.png"
 import { UserAuth } from "../context/authProvider";
 import { useForm } from 'react-hook-form';
-import { useAddPateintMutation } from '../fetures/pateintApi/pateintApi';
 import { toast } from 'react-hot-toast';
+import { useAddUserMutation, useGetUserDataQuery } from '../fetures/usersApi/usersApi';
 
 
 
 const Register = () => {
 
     const [loading, setLoading] = useState(false)
-    const [addPateint, { isSuccess }] = useAddPateintMutation()
-    const { createUserAccount, updateName,goolgeLogin } = useContext(UserAuth)
+    const [skip, setSkip] = useState(true)
+    const [docEmail, setDocEmail] = useState(null)
+    const { data: userData } = useGetUserDataQuery(docEmail, { skip })
+    const [addUser, { data, isSuccess }] = useAddUserMutation()
+    const { user, createUserAccount, updateName, goolgeLogin } = useContext(UserAuth)
     const { register, handleSubmit, formState: { errors }, reset } = useForm()
     const navigate = useNavigate();
 
     useEffect(() => {
+        if (data?.acknowledged === true && isSuccess === true && user?.email) {
+            setDocEmail(user?.email);
+            setSkip(false);
+            if (userData?.email) {
+                const data = JSON.stringify(userData);
+                localStorage.setItem("user", data);
+                reset();
+                setLoading(false);
+                navigate("/");
+            }
 
-        if (isSuccess === true) {
-            setLoading(false)
-            reset()
-            navigate('/')
         }
-    }, [isSuccess, reset,navigate])
+    }, [data, isSuccess, reset, navigate,user,userData])
+
+
 
     // handle submit from
     const submitForm = (data) => {
@@ -51,36 +63,32 @@ const Register = () => {
                 if (result.success) {
                     createUserAccount(email, password)
                         .then(res => {
-                             res.user
+                            res.user
                             updateName(name, image)
                                 .then(() => {
-                                    const currentUser = {
-                                        name,
-                                        email,
 
-                                    }
-
-                                    const peteintData = {
+                                    const userData = {
                                         name,
                                         age,
                                         email,
                                         gender,
                                         address,
                                         phone,
-                                        image: result.data.display_url
+                                        image: result.data.display_url,
+                                        category: "patient"
 
                                     }
-                                    addPateint(peteintData);
+                                    addUser(userData);
 
                                 })
                                 .catch(err => {
                                     setLoading(false)
-                                    toast.error(err.message.slice(18,-1))
+                                    toast.error(err.message.slice(18, -1))
                                 })
                         })
                         .catch(err => {
                             setLoading(false)
-                            toast.error(err.message.slice(22,-2))
+                            toast.error(err.message.slice(22, -2))
                         })
                 }
 
@@ -93,26 +101,32 @@ const Register = () => {
         toast.success("testing test")
     }
 
-    const handleGoogle = ()=>{
+    const handleGoogle = () => {
         goolgeLogin()
-        .then((res) => {
-            const user = res.user
-            const peteintData = {
-                name:user.displayName,
-                age:null,
-                email:user.email,
-                gender:null,
-                address:null,
-                phone:null,
-                image:user?.photoURL
+            .then((res) => {
+                const user = res.user
+                const userData = {
+                    name: user.displayName,
+                    age: null,
+                    email: user.email,
+                    gender: null,
+                    address: null,
+                    phone: null,
+                    image: user?.photoURL,
+                    category: "patient"
 
-            }
-            addPateint(peteintData);
-           
-        }).catch(err => {
-            toast.err(err.message)
-        })
+                }
+                addUser(userData);
+
+            }).catch(err => {
+                toast.err(err.message)
+            })
     }
+
+    if (loading) {
+        return <Loading />
+    }
+
 
     return (
         <div className="block lg:flex items-center mx-10 ">
@@ -163,7 +177,7 @@ const Register = () => {
                         required: "This is requerd fild"
                     })} />
                     {errors.photo && <p className='text-sm mt-2 text-red-700'>{errors.photo.message}</p>}
-                    <button disabled={loading} type='submit' className="w-full my-5 py-2 text-white rounded-md bg-green-400">{loading ? "Loading.." : "Register"}</button>
+                    <button disabled={loading} type='submit' className="w-full my-5 py-2 text-white rounded-md bg-green-400">Login</button>
 
 
                 </form>

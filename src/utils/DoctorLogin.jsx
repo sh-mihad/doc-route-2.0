@@ -1,4 +1,4 @@
-import  { useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import loginBanner from "../assets/login-banner.png"
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
@@ -7,18 +7,15 @@ import { toast } from 'react-hot-toast';
 import { useGetDoctorDataQuery } from '../fetures/doctorsApi/doctorsApi';
 
 const DoctorLogin = () => {
-    const [skip,setSkip] = useState(true)
-    const [docEmail,setDocEmail] = useState(null)
-    const [loading,setLoading] = useState(false)
-    const {data:doctor} = useGetDoctorDataQuery(docEmail,{skip})
-    
-     
-    
-   
+    const [skip, setSkip] = useState(true)
+    const [docEmail, setDocEmail] = useState(null)
+    const { data: doctor, isError, error } = useGetDoctorDataQuery(docEmail, { skip })
     const { register, handleSubmit, formState: { errors }, reset } = useForm()
     const navigate = useNavigate();
-    const { loging ,logout} = useContext(UserAuth)
-    
+    const { loging, logout } = useContext(UserAuth)
+
+
+
 
     const submitForm = (data) => {
         // setLoading(true)
@@ -27,23 +24,17 @@ const DoctorLogin = () => {
         loging(email, password)
             .then(res => {
                 const user = res.user;
-                if(user?.email){
+                if (user?.email) {
                     setDocEmail(user?.email)
                     setSkip(false)
-                    if(doctor?._id){
-                        reset()
-                        console.log(doctor);
-                        localStorage.setItem("doctor",JSON.stringify(doctor))
-                        
-                        // navigate(`/doctor/profile/${doctor?._id}`)
-                    }
-                    
-                }else{
+                    console.log("matching");
+
+                } else {
                     // setLoading(false)
                     logout()
                     toast.error("You are not a Doctor in our portal")
                 }
-                
+
 
             }).catch(err => toast.error(err.message.slice(22, -2)))
     }
@@ -66,6 +57,7 @@ const DoctorLogin = () => {
                     <button type="submit" className="w-full my-5 py-2 text-white rounded-md bg-green-400">Login</button>
 
                 </form>
+
                 <div className="divider">OR</div>
                 <div className="flex justify-center text-white gap-5">
                     <button className="bg-blue-500 py-2 w-1/2 rounded-md">facebook </button>

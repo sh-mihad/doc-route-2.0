@@ -13,6 +13,7 @@ const Navbar = () => {
 
   const handleLogout = () => {
     logout()
+    localStorage.clear()
     toast.success("successfully logout")
   }
 
