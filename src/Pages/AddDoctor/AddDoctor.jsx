@@ -3,27 +3,36 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { UserAuth } from "../../context/authProvider";
 import { toast } from "react-hot-toast";
-import { useAddUserMutation } from "../../fetures/usersApi/usersApi";
+import { useAddUserMutation, useGetUserDataQuery } from "../../fetures/usersApi/usersApi";
 import Loading from "../../utils/Loading";
 
 
 const AddDoctor = () => {
     
     const [loading,setLoading] =useState(false)
+    const [skip, setSkip] = useState(true)
+    const [userEmail, setUserEmail] = useState(null)
+    const { data: userData } = useGetUserDataQuery(userEmail, { skip })
     const { register, handleSubmit, formState: { errors },reset } = useForm()
-    const { createUserAccount, updateName} = useContext(UserAuth)
-    const [addUser,{isSuccess}] = useAddUserMutation()
+    const { user,createUserAccount, updateName} = useContext(UserAuth)
+    const [addUser,{data,isSuccess}] = useAddUserMutation()
     const navigate = useNavigate()
 
 
     useEffect(() => {
+        if (data?.acknowledged === true && isSuccess === true && user?.email) {
+            setUserEmail(user?.email);
+            setSkip(false);
+            if (userData?.email) {
+                const data = JSON.stringify(userData);
+                localStorage.setItem("user", data);
+                reset();
+                setLoading(false);
+                navigate("/");
+            }
 
-        if (isSuccess === true) {
-            setLoading(false)
-            reset()
-            navigate('/')
         }
-    }, [isSuccess, reset,navigate])
+    }, [data, isSuccess, reset, navigate,user,userData])
 
     const submitForm = (data) => {
         setLoading(true)
@@ -88,9 +97,9 @@ const AddDoctor = () => {
         
     }
 
-   if(loading){
-    return <Loading/>
-   }
+    if (loading) {
+        return <Loading />
+    }
 
     return (
         <div className="border border-gray-300 p-10 m-10 rounded-md">

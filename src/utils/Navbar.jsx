@@ -2,17 +2,22 @@ import { Link } from "react-router-dom";
 import { toast } from 'react-hot-toast';
 import { useContext } from 'react';
 import { UserAuth } from '../context/authProvider'
+import { useDispatch } from "react-redux";
+import { removeUser } from "../fetures/usersApi/userSlice";
 
 const Navbar = () => {
 
   const { user, logout } = useContext(UserAuth)
+  const dispatch = useDispatch()
   const menuList = <>
     <li ><Link to="/">Home</Link></li>
     <li ><Link to="/doctors">Doctors</Link></li>
   </>
 
+
   const handleLogout = () => {
     logout()
+    dispatch(removeUser)
     localStorage.clear()
     toast.success("successfully logout")
   }

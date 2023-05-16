@@ -13,8 +13,8 @@ const Register = () => {
 
     const [loading, setLoading] = useState(false)
     const [skip, setSkip] = useState(true)
-    const [docEmail, setDocEmail] = useState(null)
-    const { data: userData } = useGetUserDataQuery(docEmail, { skip })
+    const [userEmail, setUserEmail] = useState(null)
+    const { data: userData } = useGetUserDataQuery(userEmail, { skip })
     const [addUser, { data, isSuccess }] = useAddUserMutation()
     const { user, createUserAccount, updateName, goolgeLogin } = useContext(UserAuth)
     const { register, handleSubmit, formState: { errors }, reset } = useForm()
@@ -22,7 +22,7 @@ const Register = () => {
 
     useEffect(() => {
         if (data?.acknowledged === true && isSuccess === true && user?.email) {
-            setDocEmail(user?.email);
+            setUserEmail(user?.email);
             setSkip(false);
             if (userData?.email) {
                 const data = JSON.stringify(userData);

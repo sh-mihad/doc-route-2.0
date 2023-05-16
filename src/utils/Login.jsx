@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import loginBanner from "../assets/login-banner.png"
 import { useForm } from "react-hook-form";
 import { useContext, useEffect, useState } from "react";
@@ -8,24 +8,28 @@ import { useGetUserDataQuery } from "../fetures/usersApi/usersApi";
 import Loading from "./Loading";
 
 const Login = () => {
-    const [loading,setLoading] = useState(false)
+    const [loading, setLoading] = useState(false)
     const [skip, setSkip] = useState(true)
     const [docEmail, setDocEmail] = useState(null)
-    const { data: userData} = useGetUserDataQuery(docEmail, { skip })
+    const { data: userData } = useGetUserDataQuery(docEmail, { skip })
     const { register, handleSubmit, formState: { errors }, reset } = useForm()
-    const navigate = useNavigate();
     const { loging } = useContext(UserAuth)
-   
-    useEffect(()=>{
-        if(userData?.email){
+
+    const navigate = useNavigate();
+    const location = useLocation()
+    const from = location.state?.from?.pathname || "/";
+    
+
+    useEffect(() => {
+        if (userData?.email) {
             const data = JSON.stringify(userData);
-            localStorage.setItem("user",data);
+            localStorage.setItem("user", data);
             reset();
             setLoading(false);
-            navigate("/");
+            navigate(from, { replace: true });
         }
-    },[userData,navigate,reset])
-   
+    }, [userData, navigate, reset, from])
+
 
     const submitForm = (data) => {
         setLoading(true)
@@ -37,8 +41,8 @@ const Login = () => {
                 if (user?.email) {
                     setDocEmail(user?.email);
                     setSkip(false);
-                   
-                } 
+
+                }
 
             }).catch(err => {
                 setLoading(false);
@@ -46,12 +50,12 @@ const Login = () => {
             })
     }
 
-    if(loading){
-        return <Loading/>
+    if (loading) {
+        return <Loading />
     }
     return (
 
-       
+
         <div className="block lg:flex items-center mx-10 ">
             <img src={loginBanner} alt="" className="w-2/4 hidden lg:block" />
             <div className="border border-gray-300 p-10 block lg:w-2/4 lg:mx-10 mt-5 rounded-md">
@@ -67,7 +71,7 @@ const Login = () => {
                     <input type="password" name="password" className="w-full border border-gray-600 p-2 rounded-md" placeholder="Enter Password" id=""  {...register("password", {
                         required: "This is requerd fild"
                     })} />
-                    <button type="submit" className="w-full my-5 py-2 text-white rounded-md bg-green-400">{loading?"loading.." : "Login"}</button>
+                    <button type="submit" className="w-full my-5 py-2 text-white rounded-md bg-green-400">{loading ? "loading.." : "Login"}</button>
 
                 </form>
                 <div className="divider">OR</div>
