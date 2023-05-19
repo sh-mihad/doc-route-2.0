@@ -10,10 +10,10 @@ const Appoienment = () => {
         >
             <div className="hero h-auto p-0 md:p-4 lg:p-0">
                 <div className="hero-content flex-col lg:flex-row md:p-0 self-end">
-                    <img src={doctor} alt="" className="-mt-32 hidden md:block lg:w-1/2 rounded-lg " />
+                    <img src={doctor} alt="doctor" className="-mt-32 hidden md:block lg:w-1/2 rounded-lg" />
                     <div className="text-center lg:text-left">
                         <h4 className='text-lg text-white font-bold'>Appointment</h4>
-                        <h1 className=" text-white text-4xl font-bold">Make an appointment Today</h1>
+                        <h1 className=" text-white text-2xl md:text-3xl lg:text-4xl font-bold">Make an appointment Today</h1>
                         <p className="text-white py-6">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsumis that it has a more-or-less normal distribution of letters,as opposed to using , making it look like readable English. Many desktop publishing packages and web page</p>
                         <button
                             className="inline-flex items-center justify-center w-full h-12 px-6 mb-3 font-medium tracking-wide text-white transition duration-200 rounded shadow-md md:w-auto md:mr-4 md:mb-0 bg-rose-500 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
