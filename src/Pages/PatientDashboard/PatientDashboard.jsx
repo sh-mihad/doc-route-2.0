@@ -1,9 +1,5 @@
 const PatientDashboard = () => {
-    return (
-        <div>
-            this is PatientDashboard
-        </div>
-    );
+  return <div>this is PatientDashboard this is</div>;
 };
 
 export default PatientDashboard;
