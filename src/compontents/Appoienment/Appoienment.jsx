@@ -4,10 +4,10 @@ import doctorBg from "../../assets/appointment.png"
 const Appoienment = () => {
     return (
         <section className='mt-32'
-        style={{
-            background: `url(${doctorBg})`
-        }}
-            >
+            style={{
+                background: `url(${doctorBg})`
+            }}
+        >
             <div className="hero">
                 <div className="hero-content flex-col lg:flex-row">
                     <img src={doctor} alt="" className="-mt-32 hidden md:block lg:w-1/2 rounded-lg " />
@@ -19,7 +19,7 @@ const Appoienment = () => {
                             href="/"
                             className="inline-flex items-center justify-center w-full h-12 px-6 mb-3 font-medium tracking-wide text-white transition duration-200 rounded shadow-md md:w-auto md:mr-4 md:mb-0 bg-rose-500 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
                         >
-                            Appoienment
+                            Appointment
                         </button>
                     </div>
                 </div>
