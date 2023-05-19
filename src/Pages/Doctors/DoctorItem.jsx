@@ -7,19 +7,13 @@ import { AiFillStar } from "react-icons/ai";
 import { IoLocationSharp } from "react-icons/io5";
 import { Link } from "react-router-dom";
 
-const dentist = dentistLogo
-const cardiologist = cardiologistLogo
-const neurology = neurologyLogo
-const orthopedic = orthopedicLogo
-const urology = urologyLogo
 const iconArr = [
-    { img: dentist, name: "dentist" },
-    { img: cardiologist, name: "cardiologist" },
-    { img: neurology, name: "neurology" },
-    { img: urology, name: "urology" },
-    { img: orthopedic, name: "orthopedic" },
-
-]
+    { img: dentistLogo, name: "dentist" },
+    { img: cardiologistLogo, name: "cardiologist" },
+    { img: neurologyLogo, name: "neurology" },
+    { img: urologyLogo, name: "urology" },
+    { img: orthopedicLogo, name: "orthopedic" },
+];
 
 const DoctorItem = ({ doctor }) => {
     const { _id, name, certificate, specialist, adress, image } = doctor || {}
