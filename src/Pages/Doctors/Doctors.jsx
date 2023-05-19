@@ -23,9 +23,9 @@ const Doctors = () => {
         content = doctors?.map((doctor, index) => <DoctorItem doctor={doctor} key={index} />)
     }
     return (
-        <div className="flex flex-col lg:flex-row gap-5 my-10 mx-10 ">
+        <div className="flex flex-col lg:flex-row gap-5 my-10 px-3 ">
 
-            <div className="border  border-gray-400 p-5 w-full lg:w-3/12 lg:sticky top-0">
+            <div className="border border-gray-400 p-5 w-full lg:w-3/12 lg:sticky top-0">
                 <h4 className="text-lg font-semibold text-gray-600 my-3">Search Filter</h4>
                 <hr />
                 <h4 className="text-lg font-semibold text-gray-600 my-3">Gender</h4>
