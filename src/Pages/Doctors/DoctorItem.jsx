@@ -6,6 +6,7 @@ import urologyLogo from "../../assets/services/urology.png";
 import { AiFillStar } from "react-icons/ai";
 import { IoLocationSharp } from "react-icons/io5";
 import { Link } from "react-router-dom";
+
 const dentist = dentistLogo
 const cardiologist = cardiologistLogo
 const neurology = neurologyLogo
@@ -20,20 +21,16 @@ const iconArr = [
 
 ]
 
-
-
 const DoctorItem = ({ doctor }) => {
-    const { _id,name, certificate, specialist, adress, image } = doctor || {}
+    const { _id, name, certificate, specialist, adress, image } = doctor || {}
     // console.log(specialist.toLowerCase());
     const categoryIcon = iconArr.find(icon => icon.name === specialist.toLowerCase())
-    
-
 
     return (
         <div className=" flex gap-5 mb-5 p-6 border border-gray-400 w-full rounded-md justify-between">
 
             <div className="flex gap-5">
-                <img src={image} className="w-[170px] h-[170px] rounded-md" alt="" />
+                <img src={image} className="w-[170px] h-[170px] object-cover rounded-md" alt="" />
                 <div>
                     <h4 className="text-2xl font-semibold text-blue-500">{name}</h4>
                     <p className="text-gray-400 my-1">{certificate}</p>
@@ -57,7 +54,7 @@ const DoctorItem = ({ doctor }) => {
             </div>
             <div className="flex gap-3 flex-col">
                 <Link to={`/doctor/profile/${_id}`} className="border text-center hover:bg-blue-500 hover:text-white duration-200 border-blue-500 px-10 py-3">View Profile</Link>
-                <Link to={`/appoienent/1`} className="border bg-blue-500 hover:bg-blue-400 duration-200 text-white  px-10 py-3">Book Appoienment</Link>
+                <Link to={`/appoienent/1`} className="border bg-blue-500 hover:bg-blue-400 duration-200 text-white  px-10 py-3">Book Appointment</Link>
             </div>
         </div>
     );
