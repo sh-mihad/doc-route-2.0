@@ -14,7 +14,6 @@ const Navbar = () => {
     <li ><Link to="/doctors">Doctors</Link></li>
   </>
 
-
   const handleLogout = () => {
     logout()
     dispatch(removeUser)
@@ -35,7 +34,7 @@ const Navbar = () => {
             }
           </ul>
         </div>
-        <a className="btn btn-ghost normal-case text-xl">Doc Route</a>
+        <Link to="/" className="btn btn-ghost normal-case text-xl">Doc Route</Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
@@ -69,7 +68,6 @@ const Navbar = () => {
             :
             <Link to="/login"><button className="px-6 py-2 border border-gray-500 hover:bg-black hover:text-white duration-500 transition-colors ease-in-out">Login / Register</button></Link>
         }
-
       </div>
     </div>
   );
