@@ -18,7 +18,7 @@ const Login = () => {
     const navigate = useNavigate();
     const location = useLocation()
     const from = location.state?.from?.pathname || "/";
-    
+
 
     useEffect(() => {
         if (userData?.email) {
@@ -60,8 +60,8 @@ const Login = () => {
             <img src={loginBanner} alt="" className="w-2/4 hidden lg:block" />
             <div className="border border-gray-300 p-10 block lg:w-2/4 lg:mx-10 mt-5 rounded-md">
                 <div className="flex items-center justify-between text-lg font-semibold text-gray-600">
-                    <p>Petaint Login</p>
-                    <Link to="/doctor/login"> <p className="text-cyan-500">Are you a Doctor?</p></Link>
+                    <p>Patient Login</p>
+                    <Link to="/doctor/login"> <p className="text-cyan-500 underline">Are you a Doctor?</p></Link>
                 </div>
                 <form onSubmit={handleSubmit(submitForm)} >
                     <input type="email" name="email" className="w-full border my-5 border-gray-600 p-2 rounded-md" placeholder="Enter Email" id=""  {...register("email", {
