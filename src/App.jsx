@@ -52,7 +52,7 @@ function App() {
           <Route path="/add-doctor" element={<AddDoctor />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path={`/doctor/:email`} element={<DoctorProfile />} />
+          <Route path={`/doctors/:email`} element={<DoctorProfile />} />
           <Route
             path={`/appoienent/:email`}
             element={
