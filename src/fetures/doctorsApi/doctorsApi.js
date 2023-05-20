@@ -1,27 +1,25 @@
 import apiSlice from "../api/apiSlice";
 
 const doctorsApi = apiSlice.injectEndpoints({
-    endpoints : (builder)=>({
+    endpoints: (builder) => ({
 
-      getDoctors : builder.query({
-        query:()=>"/doctors"
-      }),
+        getDoctors: builder.query({
+            query: () => "/doctors"
+        }),
 
-      getDoctor : builder.query({
-          query:(email)=>`http://localhost:5000/doctor/${email}`
-      }),
+        getDoctorData: builder.query({
+            query: (email) => `http://localhost:5000/doctors-login?email=${email}`
+        }),
 
-      
-
-        addDoctor : builder.mutation({
-            query: (data) =>({
-                url:"/doctors",
-                method:"POST",
-                body:data
+        addDoctor: builder.mutation({
+            query: (data) => ({
+                url: "/doctors",
+                method: "POST",
+                body: data
             })
         }),
     })
-        
+
 })
 
-export const {useAddDoctorMutation,useGetDoctorsQuery,useGetDoctorQuery} = doctorsApi
+export const { useAddDoctorMutation, useGetDoctorDataQuery, useGetDoctorsQuery } = doctorsApi
