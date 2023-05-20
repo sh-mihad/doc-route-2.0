@@ -2,13 +2,13 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import ApoHeader from "../../compontents/AppoienmentPageCompo/ApoHeader";
 import ApoSlots from "../../compontents/AppoienmentPageCompo/ApoSlots";
-import { useGetDoctorQuery } from "../../fetures/doctorsApi/doctorsApi";
 import Loading from "../../utils/Loading";
+import { useGetDoctorsQuery } from "../../fetures/doctorsApi/doctorsApi";
 
 const AppoienmentPage = () => {
   const [selected, setSelected] = useState(new Date());
   const { email } = useParams();
-  const { data: doctor, isLoading } = useGetDoctorQuery(email);
+  const { data: doctor, isLoading } = useGetDoctorsQuery(email);
 
   let content = null;
 
