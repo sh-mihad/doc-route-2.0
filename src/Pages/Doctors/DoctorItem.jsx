@@ -62,7 +62,7 @@ const DoctorItem = ({ doctor }) => {
           View Profile
         </Link>
         <Link
-          to={`/appoienent/1`}
+          to={`/appoienent/${email}`}
           className="border bg-blue-500 hover:bg-blue-400 duration-200 text-white px-10 py-3"
         >
           Book Appointment

@@ -54,7 +54,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path={`/doctor/:email`} element={<DoctorProfile />} />
           <Route
-            path={`/appoienent/:id`}
+            path={`/appoienent/:email`}
             element={
               <PrivetRoutes>
                 <AppoienmentPage />
