@@ -11,7 +11,11 @@ export default function Profile({ doctor }) {
     <div className="w-full m-5 lg:w-10/12 lg:mx-auto my-10">
       <div className="w-full flex flex-col md:flex-row gap-5 mb-5 p-6 border border-gray-300  rounded-md justify-between">
         <div className="flex gap-5">
-          <img src={image} className="w-[170px] h-[170px] object-cover rounded-md" alt="doctor" />
+          <img
+            src={image}
+            className="w-[170px] h-[170px] object-cover rounded-md"
+            alt="doctor"
+          />
           <div>
             <h4 className="text-2xl font-semibold text-blue-500">{name}</h4>
             <p className="text-gray-400 my-1">{certificate}</p>
@@ -105,5 +109,5 @@ export default function Profile({ doctor }) {
         </div>
       </div>
     </div>
-  )
+  );
 }
