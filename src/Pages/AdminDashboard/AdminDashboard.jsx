@@ -1,3 +1,6 @@
+import { AiOutlineUserSwitch } from "react-icons/ai";
+import { FaUserMd } from "react-icons/fa";
+import { HiOutlineUsers } from "react-icons/hi";
 import { MdDashboardCustomize, MdOutlineLogout } from "react-icons/md";
 import { Link, Outlet } from "react-router-dom";
 // import DoctorAvatar from "../../assets/doctor/doctor-thumb-01";
@@ -7,9 +10,36 @@ const AdminDashboard = () => {
   const dashboardList = (
     <>
       <li className="border-t py-3 text-md font-semibold hover:text-blue-400">
-        <Link to="/" className="px-5 gap-2 flex items-center">
+        <Link to="/admin-dashboard" className="px-5 gap-2 flex items-center">
           <MdDashboardCustomize />
           Dashboard
+        </Link>
+      </li>
+      <li className="border-t py-3 text-md font-semibold hover:text-blue-400">
+        <Link
+          to="/admin-dashboard/applying-doctos"
+          className="px-5 gap-2 flex items-center"
+        >
+          <AiOutlineUserSwitch />
+          Applying Doctors
+        </Link>
+      </li>
+      <li className="border-t py-3 text-md font-semibold hover:text-blue-400">
+        <Link
+          to="/admin-dashboard/all-doctors"
+          className="px-5 gap-2 flex items-center"
+        >
+          <FaUserMd />
+          All-Doctros
+        </Link>
+      </li>
+      <li className="border-t py-3 text-md font-semibold hover:text-blue-400">
+        <Link
+          to="/admin-dashboard/all-patients"
+          className="px-5 gap-2 flex items-center"
+        >
+          <HiOutlineUsers />
+          All-Patiens
         </Link>
       </li>
       <li className="border-y py-3 text-md font-semibold hover:text-blue-400">
