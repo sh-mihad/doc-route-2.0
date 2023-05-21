@@ -17,6 +17,12 @@ const doctorsApi = apiSlice.injectEndpoints({
             }),
         }),
 
+        getDoctor: builder.query({
+            query: (id) => ({
+                url: `/doctors/${id}`,
+            }),
+        }),
+
         addDoctor: builder.mutation({
             query: (data) => ({
                 url: "/doctors",
@@ -28,4 +34,4 @@ const doctorsApi = apiSlice.injectEndpoints({
 
 })
 
-export const { useAddDoctorMutation, useGetDoctorDataQuery, useGetDoctorsQuery, useGetDoctorByEmailQuery } = doctorsApi
+export const { useAddDoctorMutation, useGetDoctorDataQuery, useGetDoctorsQuery, useGetDoctorByEmailQuery, useGetDoctorQuery } = doctorsApi
