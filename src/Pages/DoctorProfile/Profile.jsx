@@ -6,17 +6,17 @@ import EducationSection from "../../compontents/DoctorDashboard/EducationSection
 import WorkSection from "../../compontents/DoctorDashboard/WorkSection";
 
 export default function Profile({ doctor }) {
-  const { image, certificate, specialist } = doctor || {};
+  const { name, image, certificate, specialist } = doctor || {};
   return (
     <div className="w-full m-5 lg:w-10/12 lg:mx-auto my-10">
-      <div className="w-full flex gap-5 mb-5 p-6 border border-gray-300  rounded-md justify-between">
+      <div className="w-full flex flex-col md:flex-row gap-5 mb-5 p-6 border border-gray-300  rounded-md justify-between">
         <div className="flex gap-5">
-          <img src={image} className="w-[170px] h-[170px] rounded-md" alt="" />
+          <img src={image} className="w-[170px] h-[170px] object-cover rounded-md" alt="doctor" />
           <div>
             <h4 className="text-2xl font-semibold text-blue-500">{name}</h4>
             <p className="text-gray-400 my-1">{certificate}</p>
             <div className="my-3 flex gap-1 items-center">
-              <img src={serviceImg} className="w-4 h-4" alt="" />
+              <img src={serviceImg} className="w-4 h-4" alt="icon" />
               <span className="text-gray-700 text-lg font-semibold">
                 {specialist}
               </span>

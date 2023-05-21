@@ -1,4 +1,4 @@
-import { useGetDoctorByEmailQuery } from "../../fetures/doctorsApi/doctorsApi";
+import { useGetDoctorQuery } from "../../fetures/doctorsApi/doctorsApi";
 import { useParams } from "react-router-dom";
 import Loading from "../../utils/Loading";
 import Error from "../../ui/Error";
@@ -6,8 +6,8 @@ import NoData from "../../ui/NoData";
 import Profile from "./Profile";
 
 const DoctorProfile = () => {
-  const { email } = useParams();
-  const { data: doctor, isLoading, isError } = useGetDoctorByEmailQuery(email);
+  const { id } = useParams();
+  const { data: doctor, isLoading, isError } = useGetDoctorQuery(id);
 
   let content = null;
   if (isLoading) {
