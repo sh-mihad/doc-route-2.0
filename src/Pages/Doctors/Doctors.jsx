@@ -24,7 +24,12 @@ const Doctors = () => {
       default:
         return true;
     }
-  }
+  };
+
+  // // search handler form
+  // const handleSearch = () => {
+    
+  // }
 
   let content = null;
   if (isLoading) {
@@ -41,6 +46,7 @@ const Doctors = () => {
       <DoctorItem doctor={doctor} key={index} />
     ));
   }
+
   return (
     <div className="flex flex-col lg:flex-row gap-5 my-10 px-3 ">
       <div className="border border-gray-400 p-5 w-full lg:w-3/12 lg:sticky top-0">
@@ -74,7 +80,7 @@ const Doctors = () => {
         <h4 className="text-lg font-semibold text-gray-600 my-3">
           Select Specialist
         </h4>
-        <div>
+        <form>
           <div className="flex items-center gap-3 text-base text-gray-600">
             <input
               className="w-5 h-5 "
@@ -89,11 +95,11 @@ const Doctors = () => {
             <input
               className="w-5 h-5 "
               type="checkbox"
-              id="Neorology"
-              name="Neorology"
+              id="neurology"
+              name="neurology"
               value="Bike"
             />
-            <label htmlFor="Neorology">Neorology</label>
+            <label htmlFor="neurology">Neurology</label>
           </div>
           <div className="flex items-center gap-3 text-base text-gray-600">
             <input
@@ -125,10 +131,10 @@ const Doctors = () => {
             />
             <label htmlFor="Cardiologist">Cardiologist</label>
           </div>
-          <button className="bg-blue-500 text-white w-full py-2 rounded-md my-4 hover:bg-blue-300 duration-300">
+          <button type="submit" className="bg-blue-500 text-white w-full py-2 rounded-md my-4 hover:bg-blue-300 duration-300">
             Search
           </button>
-        </div>
+        </form>
       </div>
       <div className="w-full ">{content}</div>
     </div>
