@@ -16,7 +16,7 @@ const iconArr = [
 ];
 
 const DoctorItem = ({ doctor }) => {
-  const { _id, email, name, certificate, specialist, adress, image } =
+  const { _id, name, certificate, specialist, adress, image } =
     doctor || {};
   // console.log(specialist.toLowerCase());
   const categoryIcon = iconArr.find(
@@ -62,7 +62,7 @@ const DoctorItem = ({ doctor }) => {
           View Profile
         </Link>
         <Link
-          to={`/appoienent/${email}`}
+          to={`/appointment/${_id}`}
           className="border bg-blue-500 hover:bg-blue-400 duration-200 text-white px-10 py-3"
         >
           Book Appointment

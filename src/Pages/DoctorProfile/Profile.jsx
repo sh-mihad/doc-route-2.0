@@ -4,9 +4,17 @@ import { IoLocationSharp } from "react-icons/io5";
 import serviceImg from "../../assets/services/dentist.png";
 import EducationSection from "../../compontents/DoctorDashboard/EducationSection";
 import WorkSection from "../../compontents/DoctorDashboard/WorkSection";
+import { useNavigate } from "react-router-dom";
 
 export default function Profile({ doctor }) {
-  const { name, image, certificate, specialist } = doctor || {};
+  const { _id, name, image, certificate, specialist } = doctor || {};
+  const navigate = useNavigate();
+
+  // navigate to appointment page
+  const handleNavigate = () => {
+    navigate(`/appointment/${_id}`)
+  }
+
   return (
     <div className="w-full m-5 lg:w-10/12 lg:mx-auto my-10">
       <div className="w-full flex flex-col md:flex-row gap-5 mb-5 p-6 border border-gray-300  rounded-md justify-between">
@@ -40,8 +48,8 @@ export default function Profile({ doctor }) {
           </div>
         </div>
         <div className="flex gap-3 flex-col">
-          <button className="border bg-blue-500 hover:bg-blue-400 duration-200 text-white  px-10 py-3">
-            Book Appoienmentm,
+          <button type="button" onClick={handleNavigate} className="border bg-blue-500 hover:bg-blue-400 duration-200 text-white  px-10 py-3">
+            Book Appointment
           </button>
         </div>
       </div>

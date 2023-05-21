@@ -11,12 +11,12 @@ const usersApi = apiSlice.injectEndpoints({
         }),
 
         getUserData : builder.query({
-            query:(email)=>`http://localhost:5000/users?email=${email}`
+            query:(email)=>`http://localhost:5000/users?email=${email}`,
         }),
         getUserDataById : builder.query({
-            query:(id)=>`http://localhost:5000/users/${id}`
+            query:(id)=>`http://localhost:5000/users/${id}`,
         })
     })
 })
 
-export const {useAddUserMutation,useGetUserDataQuery,useGetUserDataByIdQuery} = usersApi
+export const { useAddUserMutation, useGetUserDataQuery, useGetUserDataByIdQuery } = usersApi;
