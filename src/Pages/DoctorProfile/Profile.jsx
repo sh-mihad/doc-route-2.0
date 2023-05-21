@@ -6,7 +6,7 @@ import EducationSection from "../../compontents/DoctorDashboard/EducationSection
 import WorkSection from "../../compontents/DoctorDashboard/WorkSection";
 
 export default function Profile({ doctor }) {
-  const { image, certificate, specialist } = doctor || {};
+  const { image, certificate, specialist, name } = doctor || {};
   return (
     <div className="w-full m-5 lg:w-10/12 lg:mx-auto my-10">
       <div className="w-full flex gap-5 mb-5 p-6 border border-gray-300  rounded-md justify-between">
@@ -106,5 +106,5 @@ export default function Profile({ doctor }) {
         </div>
       </div>
     </div>
-  )
+  );
 }
