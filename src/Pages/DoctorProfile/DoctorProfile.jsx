@@ -4,9 +4,9 @@ import Loading from "../../utils/Loading";
 import Error from "../../ui/Error";
 import NoData from "../../ui/NoData";
 import Profile from "./Profile";
+
 const DoctorProfile = () => {
   const { email } = useParams();
-
   const { data: doctor, isLoading, isError } = useGetDoctorByEmailQuery(email);
 
   let content = null;
