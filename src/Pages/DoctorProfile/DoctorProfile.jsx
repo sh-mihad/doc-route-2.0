@@ -14,9 +14,9 @@ const DoctorProfile = () => {
     content = <Loading />;
   } else if (!isLoading && isError) {
     content = <Error />;
-  } else if (!isLoading && !isError && Object.keys(doctor).length === 0) {
+  } else if (!isLoading && !isError && Object.keys(doctor)?.length === 0) {
     content = <NoData />;
-  } else if (!isLoading && !isError && Object.keys(doctor).length > 0) {
+  } else if (!isLoading && !isError && Object.keys(doctor)?.length > 0) {
     content = <Profile doctor={doctor} />;
   }
 

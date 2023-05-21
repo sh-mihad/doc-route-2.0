@@ -15,6 +15,9 @@ import Doctors from "./Pages/Doctors/Doctors";
 import Home from "./Pages/Home/Home";
 import PrivetRoutes from "./PrivateRoutes/PrivetRoutes";
 import AdminDashboardData from "./compontents/AdminDashborad/AdminDashboradData/AdminDashboardData";
+import AllDocros from "./compontents/AdminDashborad/AllDoctors/AllDocros";
+import AllPatients from "./compontents/AdminDashborad/AllPatients/AllPatients";
+import ApplyingDoctors from "./compontents/AdminDashborad/ApplyingDoctors/ApplyingDoctors";
 import DashboardData from "./compontents/DoctorDashboard/DashboardData";
 import useAuthCheck from "./hooks/useAuthChekc";
 import Loading from "./utils/Loading";
@@ -106,6 +109,15 @@ function App() {
         </Route>
         <Route path="/admin-dashboard" element={<AdminDashboard />}>
           <Route index element={<AdminDashboardData />} />
+          <Route
+            path="/admin-dashboard/applying-doctos"
+            element={<ApplyingDoctors />}
+          />
+          <Route path="/admin-dashboard/all-doctors" element={<AllDocros />} />
+          <Route
+            path="/admin-dashboard/all-patients"
+            element={<AllPatients />}
+          />
         </Route>
       </Routes>
     </BrowserRouter>
