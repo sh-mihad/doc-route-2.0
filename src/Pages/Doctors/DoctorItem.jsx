@@ -16,11 +16,10 @@ const iconArr = [
 ];
 
 const DoctorItem = ({ doctor }) => {
-  const { _id, name, certificate, specialist, adress, image } =
-    doctor || {};
+  const { _id, name, certificate, specialist, address, image } = doctor || {};
   // console.log(specialist.toLowerCase());
   const categoryIcon = iconArr.find(
-    (icon) => icon.name === specialist.toLowerCase()
+    (icon) => icon.name === specialist?.toLowerCase()
   );
 
   return (
@@ -50,7 +49,7 @@ const DoctorItem = ({ doctor }) => {
 
           <div className="flex items-center text-gray-400">
             <IoLocationSharp />
-            <p className="">{adress}</p>
+            <p>{address}</p>
           </div>
         </div>
       </div>

@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux";
 import { useGetDoctorsQuery } from "../../fetures/doctorsApi/doctorsApi";
 import Error from "../../ui/Error";
 import NoData from "../../ui/NoData";
@@ -6,7 +7,25 @@ import DoctorItem from "./DoctorItem";
 
 const Doctors = () => {
   const { data: doctors, isLoading, isError } = useGetDoctorsQuery();
-  //    console.log(doctors);
+  const { specialist } = useSelector((state) => state.doctors);
+  // filters doctors by their specialty
+  const filterBySpecialist = (doctor) => {
+    switch (specialist) {
+      case 'urologist':
+        return doctor?.specialist === 'Urologist';
+      case 'neurology':
+        return doctor?.specialist === 'Neurology';
+      case 'dentist':
+        return doctor?.specialist === 'Dentist';
+      case 'orthopedic':
+        return doctor?.specialist === 'Orthopedic';
+      case 'cardiologist':
+        return doctor?.specialist === 'Cardiologist';
+      default:
+        return true;
+    }
+  }
+
   let content = null;
   if (isLoading) {
     content = <Loading />;
@@ -18,7 +37,7 @@ const Doctors = () => {
     content = <NoData />;
   }
   if (!isLoading && !isError && doctors?.length > 0) {
-    content = doctors?.map((doctor, index) => (
+    content = doctors?.filter(filterBySpecialist).map((doctor, index) => (
       <DoctorItem doctor={doctor} key={index} />
     ));
   }
@@ -52,7 +71,6 @@ const Doctors = () => {
             <label htmlFor="femaleDoctor"> Female Doctor</label>
           </div>
         </div>
-
         <h4 className="text-lg font-semibold text-gray-600 my-3">
           Select Specialist
         </h4>
@@ -112,7 +130,6 @@ const Doctors = () => {
           </button>
         </div>
       </div>
-
       <div className="w-full ">{content}</div>
     </div>
   );
