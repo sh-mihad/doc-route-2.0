@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Dashboard from "./Layout/Dashboard";
 import AddDoctor from "./Pages/AddDoctor/AddDoctor";
+import AdminDashboard from "./Pages/AdminDashboard/AdminDashboard";
 import AppoienmentPage from "./Pages/Appoientment/AppoienmentPage";
 import DoctorAllAppoienments from "./Pages/Dashboard/DoctorAllAppoienments";
 import DoctorDashboard from "./Pages/Dashboard/DoctorDashboard";
@@ -13,6 +14,7 @@ import DoctorProfile from "./Pages/DoctorProfile/DoctorProfile";
 import Doctors from "./Pages/Doctors/Doctors";
 import Home from "./Pages/Home/Home";
 import PrivetRoutes from "./PrivateRoutes/PrivetRoutes";
+import AdminDashboardData from "./compontents/AdminDashborad/AdminDashboradData/AdminDashboardData";
 import DashboardData from "./compontents/DoctorDashboard/DashboardData";
 import useAuthCheck from "./hooks/useAuthChekc";
 import Loading from "./utils/Loading";
@@ -101,6 +103,9 @@ function App() {
           </Route>
 
           {/* <Route path="dashboard" element={<PatientDashboard />} /> */}
+        </Route>
+        <Route path="/admin-dashboard" element={<AdminDashboard />}>
+          <Route index element={<AdminDashboardData />} />
         </Route>
       </Routes>
     </BrowserRouter>
