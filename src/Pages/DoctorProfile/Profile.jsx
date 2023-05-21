@@ -37,7 +37,7 @@ export default function Profile({ doctor }) {
         </div>
         <div className="flex gap-3 flex-col">
           <button className="border bg-blue-500 hover:bg-blue-400 duration-200 text-white  px-10 py-3">
-            Book Appoienment
+            Book Appoienmentm,
           </button>
         </div>
       </div>
