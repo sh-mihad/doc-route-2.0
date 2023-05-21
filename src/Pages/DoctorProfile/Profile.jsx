@@ -41,7 +41,6 @@ export default function Profile({ doctor }) {
           </button>
         </div>
       </div>
-
       <div className=" my-10 p-6 border border-gray-300  rounded-md">
         <div className="lg:w-9/12">
           <h5 className="text-lg font-bold my-3 text-center lg:text-start  text-gray-700">
