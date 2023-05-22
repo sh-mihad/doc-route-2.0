@@ -1,11 +1,11 @@
-import Loading from "../utils/Loading"
 import { useContext, useEffect, useState } from 'react';
-import { Link, useNavigate } from "react-router-dom";
-import loginBanner from "../assets/login-banner.png"
-import { UserAuth } from "../context/authProvider";
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
+import { Link, useNavigate } from "react-router-dom";
+import loginBanner from "../assets/login-banner.png";
+import { UserAuth } from "../context/authProvider";
 import { useAddUserMutation, useGetUserDataQuery } from '../fetures/usersApi/usersApi';
+import Loading from "../utils/Loading";
 
 
 
@@ -31,7 +31,7 @@ const Register = () => {
                 setLoading(false);
                 navigate("/");
             }
-
+            
         }
     }, [data, isSuccess, reset, navigate,user,userData])
 
