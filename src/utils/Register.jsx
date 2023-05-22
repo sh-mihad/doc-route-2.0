@@ -7,8 +7,6 @@ import { UserAuth } from "../context/authProvider";
 import { useAddUserMutation, useGetUserDataQuery } from '../fetures/usersApi/usersApi';
 import Loading from "../utils/Loading";
 
-
-
 const Register = () => {
 
     const [loading, setLoading] = useState(false)
@@ -33,9 +31,7 @@ const Register = () => {
             }
             
         }
-    }, [data, isSuccess, reset, navigate,user,userData])
-
-
+    }, [data, isSuccess, reset, navigate, user, userData])
 
     // handle submit from
     const submitForm = (data) => {
@@ -47,8 +43,6 @@ const Register = () => {
         const address = data.adress
         const phone = data.number
         const age = data.age
-
-
 
         //  host image in server
         const formData = new FormData();
@@ -127,7 +121,6 @@ const Register = () => {
         return <Loading />
     }
 
-
     return (
         <div className="block lg:flex items-center mx-10 ">
             <img src={loginBanner} alt="" className="w-2/4 hidden lg:block" />
@@ -178,14 +171,11 @@ const Register = () => {
                     })} />
                     {errors.photo && <p className='text-sm mt-2 text-red-700'>{errors.photo.message}</p>}
                     <button disabled={loading} type='submit' className="w-full my-5 py-2 text-white rounded-md bg-green-400">Login</button>
-
-
                 </form>
                 <div className="divider">OR</div>
                 <div className="flex justify-center text-white gap-5">
                     <button onClick={handleFacebook} className="bg-blue-500 py-2 w-1/2 rounded-md">facebook </button>
                     <button onClick={handleGoogle} className="bg-red-500 py-2 w-1/2 rounded-md ">Google </button>
-
                 </div>
                 <p className="mt-10 text-center">Already have an account?<Link to="/login"><span className="text-blue-600 cursor-pointer">Login</span></Link></p>
             </div>

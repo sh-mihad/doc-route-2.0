@@ -59,7 +59,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path={`/doctors/:id`} element={<DoctorProfile />} />
           <Route
-            path={`/appoienent/:email`}
+            path={`/appointment/:id`}
             element={
               <PrivetRoutes>
                 <AppoienmentPage />
