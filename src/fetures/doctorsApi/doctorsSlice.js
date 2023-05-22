@@ -1,7 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  specialist: [],
+  specialistOfDoctor: [
+    'Urologist',
+    'Neurologist',
+    'Orthopedic',
+    'Cardiologist',
+    'Dentist',
+    'Gastroenterologist',
+  ],
   gender: [],
 };
 
@@ -10,11 +17,11 @@ const doctorsSlice = createSlice({
   initialState,
   reducers: {
     filterSpecialist: (state, action) => {
-      const indexedToRemove = state.specialist.findIndex((s) => s === action.payload);
+      const indexedToRemove = state.specialistOfDoctor.findIndex((s) => s === action.payload);
       if (indexedToRemove !== -1) {
-        state.specialist.splice(indexedToRemove, 1);
+        state.specialistOfDoctor.splice(indexedToRemove, 1);
       } else {
-        state.specialist.push(action.payload);
+        state.specialistOfDoctor.push(action.payload);
       }
     },
     filterGender: (state, action) => {
