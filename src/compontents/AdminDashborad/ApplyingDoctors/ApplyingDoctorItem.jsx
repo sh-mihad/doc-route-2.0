@@ -1,7 +1,14 @@
 import { RxCheck, RxCross2 } from "react-icons/rx";
+import { useApproveDoctorMutation } from "../../../fetures/doctorsApi/doctorsApi";
 
 const ApplyingDoctorItem = ({ doctor }) => {
-  const { name, image, specialist, email, phone } = doctor || {};
+  const { _id, name, image, specialist, email, phone } = doctor || {};
+  const [approveDoctor] = useApproveDoctorMutation();
+
+  const handleApproveDoctor = () => {
+    approveDoctor(_id);
+  };
+
   return (
     <tr>
       <td>
@@ -21,11 +28,14 @@ const ApplyingDoctorItem = ({ doctor }) => {
       <td>{email}</td>
       <td>{specialist}</td>
       <td className="flex gap-3  items-center mt-2">
-        <button className="px-3 bg-green-200 text-green-500 rounded-xl flex gap-1 items-center">
+        <button
+          onClick={handleApproveDoctor}
+          className="px-3 bg-green-200 text-green-500 rounded-xl flex gap-1 items-center"
+        >
           <RxCheck /> Approve
         </button>
         <button className="px-3 bg-red-300 text-red-500 rounded-xl flex gap-1 items-center">
-          <RxCross2 /> Delete
+          <RxCross2 /> Rejecte
         </button>
       </td>
     </tr>
