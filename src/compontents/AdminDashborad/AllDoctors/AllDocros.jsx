@@ -1,6 +1,27 @@
+import { useGetDoctorsQuery } from "../../../fetures/doctorsApi/doctorsApi";
+import Error from "../../../ui/Error";
+import NoData from "../../../ui/NoData";
+import Loading from "../../../utils/Loading";
 import AllDoctorTr from "./AllDoctorTr";
 
 const AllDocros = () => {
+  const { data: doctors, isLoading, isError } = useGetDoctorsQuery();
+
+  let content = null;
+  if (isLoading) {
+    content = <Loading />;
+  }
+  if (!isLoading && isError) {
+    content = <Error />;
+  }
+  if (!isLoading && !isError && !doctors?.length > 0) {
+    content = <NoData />;
+  }
+  if (!isLoading && !isError && doctors?.length > 0) {
+    content = doctors?.map((doctor, index) => (
+      <AllDoctorTr doctor={doctor} key={index} />
+    ));
+  }
   return (
     <div>
       <p className="text-lg text-gray-700 font-semibold">All Doctors</p>
@@ -19,7 +40,7 @@ const AllDocros = () => {
             </thead>
             <tbody>
               {/* row 1 */}
-              <AllDoctorTr />
+              {content}
             </tbody>
           </table>
         </div>

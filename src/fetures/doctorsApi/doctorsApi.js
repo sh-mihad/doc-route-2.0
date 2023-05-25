@@ -30,8 +30,19 @@ const doctorsApi = apiSlice.injectEndpoints({
                 body: data
             })
         }),
+
+        getApplyingDoctor : builder.query({
+            query:()=>"/applying-doctor"
+        }),
+        approveDoctor: builder.mutation({
+            query : (id)=>({
+                url:`/applying-doctor/${id}`,
+                method : "PUT",                
+            })
+        }) 
+        
     })
 
 })
 
-export const { useAddDoctorMutation, useGetDoctorDataQuery, useGetDoctorsQuery, useGetDoctorByEmailQuery, useGetDoctorQuery } = doctorsApi
+export const { useAddDoctorMutation, useGetDoctorDataQuery,useGetApplyingDoctorQuery, useGetDoctorsQuery, useGetDoctorByEmailQuery, useGetDoctorQuery,useApproveDoctorMutation } = doctorsApi

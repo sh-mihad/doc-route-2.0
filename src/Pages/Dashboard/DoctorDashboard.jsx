@@ -5,10 +5,12 @@ import {
   MdOutlineLogout,
   MdSettings,
 } from "react-icons/md";
+import { useSelector } from "react-redux";
 import { Link, Outlet } from "react-router-dom";
-import DoctorAvatar from "../../assets/doctor/doctor-thumb-01.jpg";
 
 const DashboardData = () => {
+  const { user } = useSelector((state) => state.userData);
+
   const dashboardList = (
     <>
       <li className="border-t py-3 text-md font-semibold hover:text-blue-400">
@@ -58,13 +60,11 @@ const DashboardData = () => {
       <div className="w-full lg:w-1/4 border rounded py-5">
         <div className="flex flex-col items-center justify-center">
           <img
-            src={DoctorAvatar}
+            src={user?.image}
             className="w-40 h-40 my-2 rounded-full bg-gray-100 p-2"
             alt=""
           />
-          <h5 className="text-lg text-gray-900 font-semibold">
-            Dr. Darren Elder
-          </h5>
+          <h5 className="text-lg text-gray-900 font-semibold">{user?.name}</h5>
           <p className="text-[15px] text-center text-gray-500">
             BDS, MDS - Oral & Maxillofacial Surgery
           </p>

@@ -9,8 +9,11 @@ const pateintApi = apiSlice.injectEndpoints({
                 body:data
             })
         }),
+        getAllPatinets : builder.query({
+            query:()=>"/pateint"
+        })
     })
         
 })
 
-export const {useAddPateintMutation} = pateintApi
+export const {useAddPateintMutation,useGetAllPatinetsQuery} = pateintApi

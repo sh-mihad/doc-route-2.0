@@ -5,12 +5,16 @@ import serviceImg from "../../assets/services/dentist.png";
 
 const ApoHeader = ({ selected, setSelected, doctor }) => {
   const { name, image, certificate, adress, specialist } = doctor || {};
-  console.log(doctor);
+
   return (
     <header className="mx-5 my-5">
       <div className="w-full block lg:flex flex-reow items-center gap-5 mb-5 p-6 border border-gray-300  rounded-md justify-between">
         <div className="block lg:flex  gap-5">
-          <img src={image} className="w-[270px] h-[270px] object-cover rounded-md" alt="doctor" />
+          <img
+            src={image}
+            className="w-[270px] h-[270px] object-cover rounded-md"
+            alt="doctor"
+          />
           <div>
             <h4 className="text-2xl font-semibold text-blue-500">{name}</h4>
             <p className="text-gray-400 my-1">{certificate}</p>

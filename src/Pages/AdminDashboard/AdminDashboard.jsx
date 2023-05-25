@@ -2,10 +2,13 @@ import { AiOutlineUserSwitch } from "react-icons/ai";
 import { FaUserMd } from "react-icons/fa";
 import { HiOutlineUsers } from "react-icons/hi";
 import { MdDashboardCustomize, MdOutlineLogout } from "react-icons/md";
+import { useSelector } from "react-redux";
 import { Link, Outlet } from "react-router-dom";
 // import DoctorAvatar from "../../assets/doctor/doctor-thumb-01";
 
 const AdminDashboard = () => {
+  const { user } = useSelector((state) => state.userData);
+
   // dashboard list
   const dashboardList = (
     <>
@@ -56,13 +59,11 @@ const AdminDashboard = () => {
       <div className="w-full lg:w-1/4 border rounded py-5">
         <div className="flex flex-col items-center justify-center">
           <img
-            src="https://doccure.dreamguystech.com/html/template/assets/img/doctors/doctor-thumb-02.jpg"
+            src={user?.image}
             className="w-40 h-40 my-2 rounded-full bg-gray-100 p-2"
             alt=""
           />
-          <h5 className="text-lg text-gray-900 font-semibold">
-            Dr. Darren Elder
-          </h5>
+          <h5 className="text-lg text-gray-900 font-semibold">{user?.name}</h5>
           <p className="text-[15px] text-center text-gray-500">
             BDS, MDS - Oral & Maxillofacial Surgery
           </p>
