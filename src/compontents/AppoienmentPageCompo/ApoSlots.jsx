@@ -14,7 +14,8 @@ const ApoSlots = ({ selected, doctor }) => {
     <div className="mx-5 my-5 border border-gray-300  rounded-md p-6 ">
       <div className="flex justify-between items-centerw-full  lg:flex flex-reow items-center gap-5 mb-5 ">
         <h5 className="text-lg font-bold my-3 text-center lg:text-start  text-gray-700">
-          Available Slots : <span className="text-blue-500">10</span>
+          Available Slots :{" "}
+          <span className="text-blue-500">{slotsData?.length}</span>
         </h5>
         <h5 className="text-lg font-bold my-3 text-center lg:text-start  text-gray-700">
           {format(selected, "PP")}
