@@ -25,7 +25,7 @@ const DashboardData = () => {
           className="px-5 gap-2 flex items-center"
         >
           <MdEditCalendar />
-          All Aopoienments
+          All Appointments
         </Link>
       </li>
       <li className="border-t py-3 text-md font-semibold hover:text-blue-400">

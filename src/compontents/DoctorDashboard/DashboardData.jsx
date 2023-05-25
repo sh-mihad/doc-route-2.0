@@ -16,8 +16,8 @@ const DashboardData = () => {
                         {/* head */}
                         <thead>
                             <tr>
-                                <th>Pateint Name</th>
-                                <th>Appt Date</th>
+                                <th>Patient Name</th>
+                                <th>Appointment Date</th>
                                 <th>Type</th>
                                 <th>Paid Amount	</th>
                                 <th></th>
