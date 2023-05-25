@@ -10,13 +10,13 @@ export default function Checkbox({ data }) {
   // handler
   const handleFilter = (e) => {
     setChecked(e.target.checked);
-    dispatch(filterSpecialist(name))
+    dispatch(filterSpecialist(name));
   }
 
   return (
     <div className="flex items-center gap-3 text-base text-gray-600">
       <input
-        className="w-5 h-5 "
+        className="w-5 h-5"
         type="checkbox"
         id={name}
         name={name}
