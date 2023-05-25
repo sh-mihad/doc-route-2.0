@@ -37,7 +37,7 @@ function App() {
     }
   }, [user?.email, user?.category]);
 
-  // console.log(category);
+  console.log(category);
 
   return !authChek ? (
     <div>Check authentication ...</div>
