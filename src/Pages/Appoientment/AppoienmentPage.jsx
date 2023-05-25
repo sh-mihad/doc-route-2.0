@@ -21,7 +21,7 @@ const AppoienmentPage = () => {
         setSelected={setSelected}
         doctor={doctor}
       />
-      <ApoSlots selected={selected} />
+      <ApoSlots selected={selected} doctor={doctor} />
     </div>
   );
 };
