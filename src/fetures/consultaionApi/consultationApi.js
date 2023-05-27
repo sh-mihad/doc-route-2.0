@@ -4,10 +4,10 @@ const consultaionApi = apiSlice.injectEndpoints({
     endpoints : (builder)=>({
         addCounsultaion : builder.mutation({          
                 query: (data) =>({
-                    url:"/pateint",
+                    url:"/consultaion",
                     method:"POST",
                     body:data
-                })            
+                })           
         })
     })
 })

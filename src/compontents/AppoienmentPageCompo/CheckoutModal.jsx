@@ -1,11 +1,24 @@
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { useAddCounsultaionMutation } from "../../fetures/consultaionApi/consultationApi";
 import BookingSummary from "./BookingSummary";
 
 const CheckoutModal = ({ doctor, selected, slot }) => {
   const { user } = useSelector((state) => state?.userData);
+  const [addCounsultaion, { data, isSuccess }] = useAddCounsultaionMutation();
   const { name, email, _id, address } = user || {};
-  const { handleSubmit, reset } = useForm();
+  const { handleSubmit } = useForm();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (data?.acknowledged === true && isSuccess === true) {
+      toast.success("Booking Done");
+      navigate("/");
+    }
+  }, [navigate, data, isSuccess]);
 
   const submitForm = () => {
     const patientId = _id;
@@ -20,7 +33,7 @@ const CheckoutModal = ({ doctor, selected, slot }) => {
       consultationTime,
       consultationStatus: "pending",
     };
-    console.log(consultaionData);
+    addCounsultaion(consultaionData);
   };
 
   return (

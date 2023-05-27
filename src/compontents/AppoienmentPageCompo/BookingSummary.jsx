@@ -2,7 +2,7 @@ import { format } from "date-fns";
 import { ImLocation } from "react-icons/im";
 
 const BookingSummary = ({ doctor, selected, slot }) => {
-  const { name, adress, specialist, image } = doctor;
+  const { name, adress, specialist, image } = doctor || {};
 
   return (
     <div>
