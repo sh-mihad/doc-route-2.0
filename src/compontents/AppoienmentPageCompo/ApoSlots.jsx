@@ -41,7 +41,7 @@ const ApoSlots = ({ selected, doctor }) => {
       >
         Book Now
       </label>
-      <CheckoutModal doctor={doctor} />
+      <CheckoutModal selected={selected} slot={slot} doctor={doctor} />
     </div>
   );
 };

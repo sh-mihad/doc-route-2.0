@@ -1,6 +1,7 @@
+import { format } from "date-fns";
 import { ImLocation } from "react-icons/im";
 
-const BookingSummary = ({ doctor }) => {
+const BookingSummary = ({ doctor, selected, slot }) => {
   const { name, adress, specialist, image } = doctor;
 
   return (
@@ -17,6 +18,18 @@ const BookingSummary = ({ doctor }) => {
           </div>
           <h4 className="font-semibold">{specialist}</h4>
         </div>
+      </div>
+      <div className="flex justify-between font-sans font-semibold mx-5 text-lg">
+        <p>Date :</p>
+        <p> {format(selected, "PP")}</p>
+      </div>
+      <div className="flex justify-between font-sans font-semibold mx-5 text-lg">
+        <p>Time :</p>
+        <p>{slot}</p>
+      </div>
+      <div className="flex justify-between font-sans font-semibold mx-5 text-lg">
+        <p>Consulting Fee :</p>
+        <p>৳ 1000</p>
       </div>
     </div>
   );
