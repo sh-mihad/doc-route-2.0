@@ -4,12 +4,23 @@ import BookingSummary from "./BookingSummary";
 
 const CheckoutModal = ({ doctor, selected, slot }) => {
   const { user } = useSelector((state) => state?.userData);
-  console.log(user);
   const { name, email, _id, address } = user || {};
   const { handleSubmit, reset } = useForm();
 
   const submitForm = () => {
-    console.log("handle submit");
+    const patientId = _id;
+    const doctorEmail = doctor?.email;
+    const consultationDate = selected;
+    const consultationTime = slot;
+
+    const consultaionData = {
+      patientId,
+      doctorEmail,
+      consultationDate,
+      consultationTime,
+      consultationStatus: "pending",
+    };
+    console.log(consultaionData);
   };
 
   return (
