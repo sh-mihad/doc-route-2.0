@@ -37,7 +37,7 @@ const ApoSlots = ({ selected, doctor }) => {
 
       <label
         htmlFor="checkoutModal"
-        className="block text-center text-white bg-blue-500 px-6 py-2 rounded-md  my-5 w-full hover:bg-blue-700 duration-150"
+        className="block text-center text-white bg-blue-500 px-6 py-2 rounded-md  my-5 w-full hover:bg-blue-700 duration-150 disabled"
       >
         Book Now
       </label>
