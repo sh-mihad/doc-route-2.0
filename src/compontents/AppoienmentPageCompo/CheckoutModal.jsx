@@ -5,13 +5,8 @@ import BookingSummary from "./BookingSummary";
 const CheckoutModal = ({ doctor, selected, slot }) => {
   const { user } = useSelector((state) => state?.userData);
   console.log(user);
-  const { name, email, _id, adress } = user || {};
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm();
+  const { name, email, _id, address } = user || {};
+  const { handleSubmit, reset } = useForm();
 
   const submitForm = () => {
     console.log("handle submit");
@@ -33,42 +28,47 @@ const CheckoutModal = ({ doctor, selected, slot }) => {
           </label>
           <div className="lg:flex gap-10">
             <div className="border rounded-lg p-5 lg:w-7/12">
+              <h1 className="text-xl font-sans font-bold">
+                Personal Information
+              </h1>
+              <hr className="w-full mt-2" />
               <form onSubmit={handleSubmit(submitForm)}>
-                <div className="flex items-center gap-2">
-                  <div className="w-full lg:w-6/12">
+                <div className="grid grid-cols-1 mt-8 lg:grid-cols-2 items-center gap-2">
+                  <div className="w-full ">
                     <label>Name</label>
                     <input
                       type="text"
                       className="w-full border mt-2 border-gray-600 p-2 rounded-md"
                       value={name}
                       disabled
-                      {...register("name", {
-                        required: "Invalid Name Fild",
-                      })}
                     />
-                    {errors.name && (
-                      <p className="text-sm mt-2 text-red-700">
-                        {errors.name.message}
-                      </p>
-                    )}
                   </div>
-                  <div className="w-full lg:w-6/12">
+                  <div className="w-full ">
                     <label>Email</label>
                     <input
                       type="text"
                       className="w-full border mt-2 border-gray-600 p-2 rounded-md"
                       value={email}
                       disabled
-                      {...register("name", {
-                        required: "Invalid Name Fild",
-                      })}
                     />
-                    {errors.name && (
-                      <p className="text-sm mt-2 text-red-700">
-                        {errors.name.message}
-                      </p>
-                    )}
                   </div>
+                </div>
+                <div className="w-full mt-8 ">
+                  <label>Adress</label>
+                  <input
+                    type="text"
+                    className="w-full border mt-2 border-gray-600 p-2 rounded-md"
+                    value={address}
+                    disabled
+                  />
+                </div>
+                <div>
+                  <button
+                    type="submit"
+                    className="w-full mt-8 py-2 text-white rounded-md bg-blue-500 hover:bg-blue-400 duration-300"
+                  >
+                    Confirm Booking
+                  </button>
                 </div>
               </form>
             </div>
