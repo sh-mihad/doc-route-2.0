@@ -1,6 +1,6 @@
 import BookingSummary from "./BookingSummary";
 
-const CheckoutModal = ({ doctor }) => {
+const CheckoutModal = ({ doctor, selected, slot }) => {
   return (
     <div>
       {/* The button to open modal */}
@@ -20,7 +20,7 @@ const CheckoutModal = ({ doctor }) => {
               this is for summary
             </div>
             <div className="border rounded-lg p-5 lg:w-5/12">
-              <BookingSummary doctor={doctor} />
+              <BookingSummary doctor={doctor} selected={selected} slot={slot} />
             </div>
           </div>
         </div>
