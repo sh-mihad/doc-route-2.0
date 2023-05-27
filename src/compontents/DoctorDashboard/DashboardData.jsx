@@ -5,10 +5,8 @@ import PateintModal from "./PateintModal";
 
 
 const DashboardData = () => {
-
     return (
         <div>
-
             <p className="text-lg text-gray-700 font-semibold">{"Today's Patient Appoinment"}</p>
             <div className="my-3">
                 <div className="overflow-x-auto w-full">
