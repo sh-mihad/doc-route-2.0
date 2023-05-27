@@ -23,12 +23,18 @@ const BookingSummary = ({ doctor, selected, slot }) => {
         <p>Date :</p>
         <p> {format(selected, "PP")}</p>
       </div>
-      <div className="flex justify-between font-sans font-semibold mx-5 text-lg">
+      <div className="flex justify-between font-sans font-semibold mx-5 mt-3 text-lg">
         <p>Time :</p>
         <p>{slot}</p>
       </div>
-      <div className="flex justify-between font-sans font-semibold mx-5 text-lg">
+      <div className="flex justify-between font-sans font-semibold mx-5 text-lg my-3">
         <p>Consulting Fee :</p>
+        <p>৳ 1000</p>
+      </div>
+      <hr className="my-3" />
+
+      <div className="flex justify-between font-sans font-semibold mx-5 text-lg my-3">
+        <h1 className="text-lg font-sans font-bold">Total:</h1>
         <p>৳ 1000</p>
       </div>
     </div>

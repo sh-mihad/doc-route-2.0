@@ -112,7 +112,7 @@ const AddDoctor = () => {
       <form onSubmit={handleSubmit(submitForm)}>
         <input
           type="text"
-          className="w-full border mt-5 border-gray-600 p-2 rounded-md"
+          className="w-full  border mt-5 border-gray-600 p-2 rounded-md"
           placeholder="Doctor Name"
           {...register("name", {
             required: "Invalid Name Fild",
