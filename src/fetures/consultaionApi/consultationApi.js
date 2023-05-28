@@ -12,7 +12,7 @@ const consultaionApi = apiSlice.injectEndpoints({
         getPatientsByEmail : builder.query({
             query:(email)=>`/consulation?email=${email}`
         }),
-        patientsUpdate:builder.query({
+        patientsUpdate:builder.mutation({
             query:(id)=>({
                 url :`/consulation/${id}`,
                 method: "PUT",
@@ -21,4 +21,4 @@ const consultaionApi = apiSlice.injectEndpoints({
     })
 })
 
-export const  {useAddCounsultaionMutation,useGetPatientsByEmailQuery} = consultaionApi
+export const  {useAddCounsultaionMutation,useGetPatientsByEmailQuery,use} = consultaionApi
