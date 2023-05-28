@@ -23,8 +23,9 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
-
+  console.log(userData);
   useEffect(() => {
+    console.log(userData);
     if (userData?.email) {
       const data = JSON.stringify(userData);
       localStorage.setItem("user", data);
