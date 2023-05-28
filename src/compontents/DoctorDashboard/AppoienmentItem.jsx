@@ -24,9 +24,8 @@ const AppoienmentItem = ({ patient }) => {
           </div>
         </div>
       </td>
-      <td>
-        {/* {format(consultationDate, "PP")} */}
-        {consultationDate}
+      <td className="text-center">
+        {consultationDate.slice(0, 10)}
         <br />
         <span className="badge badge-ghost badge-sm">{consultationTime}</span>
       </td>

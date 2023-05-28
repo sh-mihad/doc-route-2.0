@@ -11,8 +11,6 @@ const ApoSlots = ({ selected, doctor }) => {
       .then((data) => setSlotsData(data));
   }, []);
 
-  console.log();
-
   return (
     <div className="mx-5 my-5 border border-gray-300  rounded-md p-6 ">
       <div className="flex justify-between items-centerw-full  lg:flex flex-reow items-center gap-5 mb-5 ">

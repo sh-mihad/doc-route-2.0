@@ -11,6 +11,12 @@ const consultaionApi = apiSlice.injectEndpoints({
         }),
         getPatientsByEmail : builder.query({
             query:(email)=>`/consulation?email=${email}`
+        }),
+        patientsUpdatev:builder.query({
+            query:(id)=>({
+                url :`/consulation/${id}`,
+                method: "PUT",
+            })
         })
     })
 })
