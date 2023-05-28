@@ -8,8 +8,11 @@ const consultaionApi = apiSlice.injectEndpoints({
                     method:"POST",
                     body:data
                 })           
+        }),
+        getPatients : builder.query({
+            query:(email)=>`/consulation?email=${email}`
         })
     })
 })
 
-export const  {useAddCounsultaionMutation} = consultaionApi
+export const  {useAddCounsultaionMutation,useGetPatientsQuery} = consultaionApi
