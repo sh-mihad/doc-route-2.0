@@ -9,7 +9,7 @@ import BookingSummary from "./BookingSummary";
 const CheckoutModal = ({ doctor, selected, slot }) => {
   const { user } = useSelector((state) => state?.userData);
   const [addCounsultaion, { data, isSuccess }] = useAddCounsultaionMutation();
-  const { name, email, _id, address } = user || {};
+  const { name, email, address, phone, image } = user || {};
   const { handleSubmit } = useForm();
   const navigate = useNavigate();
 
@@ -21,14 +21,20 @@ const CheckoutModal = ({ doctor, selected, slot }) => {
   }, [navigate, data, isSuccess]);
 
   const submitForm = () => {
-    const patientId = _id;
+    const patientName = name;
+    const patientEmail = email;
+    const patientPhone = phone || null;
+    const patientImage = image;
     const doctorEmail = doctor?.email;
     const consultationDate = selected;
     const consultationTime = slot;
 
     const consultaionData = {
-      patientId,
+      patientName,
       doctorEmail,
+      patientEmail,
+      patientPhone,
+      patientImage,
       consultationDate,
       consultationTime,
       consultationStatus: "pending",
