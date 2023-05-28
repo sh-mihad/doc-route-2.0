@@ -4,13 +4,14 @@ import CheckoutModal from "./CheckoutModal";
 const ApoSlots = ({ selected, doctor }) => {
   const [slotsData, setSlotsData] = useState(null);
   const [slot, setSlot] = useState(null);
-  console.log("🚀 ~ file: ApoSlots.jsx:7 ~ ApoSlots ~ slot:", slot);
 
   useEffect(() => {
     fetch("/availableSlots.json")
       .then((res) => res.json())
       .then((data) => setSlotsData(data));
   }, []);
+
+  console.log();
 
   return (
     <div className="mx-5 my-5 border border-gray-300  rounded-md p-6 ">

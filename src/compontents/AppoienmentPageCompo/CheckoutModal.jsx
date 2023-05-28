@@ -23,6 +23,7 @@ const CheckoutModal = ({ doctor, selected, slot }) => {
   const submitForm = () => {
     const patientName = name;
     const patientEmail = email;
+    const patientAdress = address;
     const patientPhone = phone || null;
     const patientImage = image;
     const doctorEmail = doctor?.email;
@@ -32,6 +33,7 @@ const CheckoutModal = ({ doctor, selected, slot }) => {
     const consultaionData = {
       patientName,
       doctorEmail,
+      patientAdress,
       patientEmail,
       patientPhone,
       patientImage,
