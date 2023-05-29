@@ -5,7 +5,6 @@ import Error from "../../ui/Error";
 import NoData from "../../ui/NoData";
 import Loading from "../../utils/Loading";
 import AppoienmentItem from "./AppoienmentItem";
-import PateintModal from "./PateintModal";
 
 const DashboardData = () => {
   const [docEmail, setDocEmail] = useState(null);
@@ -62,7 +61,6 @@ const DashboardData = () => {
           </table>
         </div>
       </div>
-      <PateintModal />
     </div>
   );
 };

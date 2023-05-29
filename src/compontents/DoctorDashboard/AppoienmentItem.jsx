@@ -1,5 +1,6 @@
 import { MdRemoveRedEye } from "react-icons/md";
 import { RxCheck, RxCross2 } from "react-icons/rx";
+import PateintModal from "./PateintModal";
 
 const AppoienmentItem = ({ patient }) => {
   const {
@@ -48,6 +49,7 @@ const AppoienmentItem = ({ patient }) => {
           <RxCross2 /> Cancel
         </button>
       </td>
+      <PateintModal />
     </tr>
   );
 };

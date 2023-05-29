@@ -21,4 +21,4 @@ const consultaionApi = apiSlice.injectEndpoints({
     })
 })
 
-export const  {useAddCounsultaionMutation,useGetPatientsByEmailQuery,use} = consultaionApi
+export const  {useAddCounsultaionMutation,useGetPatientsByEmailQuery,usePatientsUpdateMutation} = consultaionApi
