@@ -10,7 +10,7 @@ const CheckoutModal = ({ doctor, selected, slot }) => {
   const { user } = useSelector((state) => state?.userData);
   const [addCounsultaion, { data, isSuccess }] = useAddCounsultaionMutation();
   const { name, email, address, phone, image } = user || {};
-  const { handleSubmit } = useForm();
+  const { handleSubmit, register } = useForm();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -20,7 +20,7 @@ const CheckoutModal = ({ doctor, selected, slot }) => {
     }
   }, [navigate, data, isSuccess]);
 
-  const submitForm = () => {
+  const submitForm = (data) => {
     const patientName = name;
     const patientEmail = email;
     const patientAdress = address;
@@ -29,6 +29,8 @@ const CheckoutModal = ({ doctor, selected, slot }) => {
     const doctorEmail = doctor?.email;
     const consultationDate = selected;
     const consultationTime = slot;
+    const pateintBlood = data.blood;
+    const patietnDisease = data.disease;
 
     const consultaionData = {
       patientName,
@@ -38,9 +40,12 @@ const CheckoutModal = ({ doctor, selected, slot }) => {
       patientPhone,
       patientImage,
       consultationDate,
+      pateintBlood,
+      patietnDisease,
       consultationTime,
       consultationStatus: "pending",
     };
+
     addCounsultaion(consultaionData);
   };
 
@@ -85,13 +90,42 @@ const CheckoutModal = ({ doctor, selected, slot }) => {
                     />
                   </div>
                 </div>
-                <div className="w-full mt-8 ">
-                  <label>Adress</label>
-                  <input
-                    type="text"
-                    className="w-full border mt-2 border-gray-600 p-2 rounded-md"
-                    value={address}
-                    disabled
+
+                <div className="grid grid-cols-1  lg:grid-cols-2 items-center gap-2">
+                  <div className="w-full mt-8 ">
+                    <label>Adress</label>
+                    <input
+                      type="text"
+                      className="w-full border mt-2 border-gray-600 p-2 rounded-md"
+                      value={address}
+                      disabled
+                    />
+                  </div>
+                  <div className="w-full mt-8 ">
+                    <label>Blood Group</label>
+                    <select
+                      className="select border border-gray-600 input w-full mt-4"
+                      {...register("blood", {})}
+                    >
+                      <option value="" hidden>
+                        Select specialist{" "}
+                      </option>
+                      <option value="A+">A+</option>
+                      <option value="O+">O+</option>
+                      <option value="B+">B+</option>
+                      <option value="AB+">AB+</option>
+                      <option value="A-">A-</option>
+                      <option value="B-">B-</option>
+                      <option value="O-">O-</option>
+                      <option value="AB-">AB-</option>
+                    </select>
+                  </div>
+                </div>
+                <div className="">
+                  <textarea
+                    className="w-full border h-72 mt-5 border-gray-600 p-2 rounded-md"
+                    placeholder="Describe Your Disease"
+                    {...register("disease", {})}
                   />
                 </div>
                 <div>
