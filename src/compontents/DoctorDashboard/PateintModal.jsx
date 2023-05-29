@@ -1,4 +1,4 @@
-const PateintModal = ({ patientData }) => {
+const PateintModal = ({ patientData, patietnDisease, pateintBlood }) => {
   const { name, image, age, address, phone } = patientData || {};
   return (
     <div>
@@ -12,21 +12,33 @@ const PateintModal = ({ patientData }) => {
             ✕
           </label>
           <div>
-            <div>
-              <img src={image} alt="" className="w-6/12 mx-auto" />
-              <h5>
-                Name : <span>{name}</span>
-              </h5>
-              <h5>
-                Adress : <span>{address}</span>
-              </h5>
-              <h5>
-                Age : <span>{age}</span>
-              </h5>
-              <h5>
-                Phone Number: <span>{phone}</span>
-              </h5>
+            <h1 className="text-xl font-sans font-bold">Patient Details</h1>
+            <hr className="w-full mt-2" />
+            <div className="flex gap-6 my-5 items-center text-gray-700">
+              <img src={image} alt="" className="w-3/12 rounded-md" />
+              <div>
+                <h1 className="text-2xl font-semibold">{name}</h1>
+
+                <p>
+                  Adress : <span>{address}</span>
+                </p>
+                <p>
+                  Phone : <span>{phone}</span>
+                </p>
+                <p>
+                  Age : <span>{age}</span>
+                </p>
+                <p>
+                  Blood : <span>{pateintBlood}</span>
+                </p>
+              </div>
             </div>
+          </div>
+
+          <div className="my-5">
+            <h4 className="text-xl font-bold">Disease</h4>
+            <hr className="mb-5" />
+            <p>{patietnDisease}</p>
           </div>
         </div>
       </div>

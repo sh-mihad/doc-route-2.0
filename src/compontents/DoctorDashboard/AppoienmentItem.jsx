@@ -11,6 +11,8 @@ const AppoienmentItem = ({ patient }) => {
     patientImage,
     patientAdress,
     patientEmail,
+    pateintBlood,
+    patietnDisease,
   } = patient || {};
 
   const { data: patientData } = useGetUserDataQuery(patientEmail);
@@ -40,12 +42,17 @@ const AppoienmentItem = ({ patient }) => {
       <td className="flex gap-3  items-center mt-2">
         <label
           htmlFor="my-modal-3"
-          className="px-3  bg-blue-200     text-blue-500 rounded-xl flex gap-1 items-center"
+          className="px-3  bg-blue-200  text-blue-500 rounded-xl flex gap-1 items-center"
         >
           {" "}
           <MdRemoveRedEye />
           Show Details
         </label>
+        <PateintModal
+          patientData={patientData}
+          pateintBlood={pateintBlood}
+          patietnDisease={patietnDisease}
+        />
         {/* <label htmlFor="my-modal-3" className="btn">open modal</label> */}
         <button className="px-3 bg-green-200 text-green-500 rounded-xl flex gap-1 items-center">
           <RxCheck /> Done
@@ -54,7 +61,6 @@ const AppoienmentItem = ({ patient }) => {
           <RxCross2 /> Cancel
         </button>
       </td>
-      <PateintModal patientData={patientData} />
     </tr>
   );
 };
