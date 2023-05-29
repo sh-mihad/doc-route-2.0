@@ -2,12 +2,11 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   specialistOfDoctor: [
-    'Urologist',
-    'Neurologist',
+    'urology',
+    'neorology',
     'Orthopedic',
     'Cardiologist',
     'Dentist',
-    'Gastroenterologist',
   ],
   gender: [],
 };

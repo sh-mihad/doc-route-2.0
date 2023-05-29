@@ -1,18 +1,21 @@
 import { useSelector } from "react-redux";
+import Form from "../../compontents/specialist/Form";
 import { useGetDoctorsQuery } from "../../fetures/doctorsApi/doctorsApi";
 import Error from "../../ui/Error";
 import NoData from "../../ui/NoData";
 import Loading from "../../utils/Loading";
 import DoctorItem from "./DoctorItem";
-import Form from "../../compontents/specialist/Form";
 
 const Doctors = () => {
   const { data: doctors, isLoading, isError } = useGetDoctorsQuery();
+  console.log(doctors);
   const { specialistOfDoctor } = useSelector((state) => state.doctors);
   // filters doctors by their specialty
   const filterBySpecialist = (doctor) => {
     const { specialist } = doctor || {};
-    const index = specialistOfDoctor.findIndex((specialty) => specialty === specialist);
+    const index = specialistOfDoctor.findIndex(
+      (specialty) => specialty === specialist
+    );
     switch (index) {
       case -1:
         return false;
@@ -21,7 +24,7 @@ const Doctors = () => {
       default:
         return true;
     }
-  }
+  };
 
   let content = null;
   if (isLoading) {
@@ -34,9 +37,9 @@ const Doctors = () => {
     content = <NoData />;
   }
   if (!isLoading && !isError && doctors?.length > 0) {
-    content = doctors?.filter(filterBySpecialist).map((doctor, index) => (
-      <DoctorItem doctor={doctor} key={index} />
-    ));
+    content = doctors
+      ?.filter(filterBySpecialist)
+      .map((doctor, index) => <DoctorItem doctor={doctor} key={index} />);
   }
 
   return (

@@ -4,7 +4,7 @@ const doctorsApi = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
 
         getDoctors: builder.query({
-            query: () => "/doctors"
+            query: () => "/approved-doctor"
         }),
 
         getDoctorData: builder.query({
