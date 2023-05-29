@@ -1,5 +1,6 @@
 import { MdRemoveRedEye } from "react-icons/md";
 import { RxCheck, RxCross2 } from "react-icons/rx";
+import { useGetUserDataQuery } from "../../fetures/usersApi/usersApi";
 import PateintModal from "./PateintModal";
 
 const AppoienmentItem = ({ patient }) => {
@@ -9,7 +10,11 @@ const AppoienmentItem = ({ patient }) => {
     consultationDate,
     patientImage,
     patientAdress,
+    patientEmail,
   } = patient || {};
+
+  const { data: patientData } = useGetUserDataQuery(patientEmail);
+
   return (
     <tr>
       <td>
@@ -49,7 +54,7 @@ const AppoienmentItem = ({ patient }) => {
           <RxCross2 /> Cancel
         </button>
       </td>
-      <PateintModal />
+      <PateintModal patientData={patientData} />
     </tr>
   );
 };
