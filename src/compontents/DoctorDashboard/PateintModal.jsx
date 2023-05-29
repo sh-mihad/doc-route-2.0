@@ -1,5 +1,5 @@
 const PateintModal = ({ patientData }) => {
-  const { name } = patientData || {};
+  const { name, image, age, address, phone } = patientData || {};
   return (
     <div>
       <input type="checkbox" id="my-modal-3" className="modal-toggle" />
@@ -11,7 +11,23 @@ const PateintModal = ({ patientData }) => {
           >
             ✕
           </label>
-          <h3 className="text-lg font-bold">{name}</h3>
+          <div>
+            <div>
+              <img src={image} alt="" className="w-6/12 mx-auto" />
+              <h5>
+                Name : <span>{name}</span>
+              </h5>
+              <h5>
+                Adress : <span>{address}</span>
+              </h5>
+              <h5>
+                Age : <span>{age}</span>
+              </h5>
+              <h5>
+                Phone Number: <span>{phone}</span>
+              </h5>
+            </div>
+          </div>
         </div>
       </div>
     </div>
