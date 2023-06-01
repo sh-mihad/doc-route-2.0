@@ -1,4 +1,8 @@
 const PateintModal = ({ patientData, patietnDisease, pateintBlood }) => {
+  console.log(
+    "🚀 ~ file: PateintModal.jsx:2 ~ PateintModal ~ patientData:",
+    patientData
+  );
   const { name, image, age, address, phone } = patientData || {};
   return (
     <div>

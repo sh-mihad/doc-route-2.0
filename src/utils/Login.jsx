@@ -60,11 +60,7 @@ const Login = () => {
       <img src={loginBanner} alt="" className="w-2/4 hidden lg:block" />
       <div className="border border-gray-300 p-10 block lg:w-2/4 lg:mx-10 mt-5 rounded-md">
         <div className="flex items-center justify-between text-lg font-semibold text-gray-600">
-          <p>Patient Login</p>
-          <Link to="/doctor/login">
-            {" "}
-            <p className="text-cyan-500 underline">Are you a Doctor?</p>
-          </Link>
+          <p>Login</p>
         </div>
         <form onSubmit={handleSubmit(submitForm)}>
           <input

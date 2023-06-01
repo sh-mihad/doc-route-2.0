@@ -34,8 +34,8 @@ const DashboardData = () => {
     content = <NoData />;
   }
   if (!isLoading && !isError && patients?.length > 0) {
-    content = patients?.map((patient, index) => (
-      <AppoienmentItem patient={patient} key={index} />
+    content = patients?.map((patient) => (
+      <AppoienmentItem patient={patient} key={patient?._id} />
     ));
   }
 
