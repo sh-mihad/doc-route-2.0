@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { toast } from "react-hot-toast";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { UserAuth } from "../context/authProvider";
 import { removeUser } from "../fetures/usersApi/userSlice";
@@ -8,6 +8,8 @@ import { removeUser } from "../fetures/usersApi/userSlice";
 const Navbar = () => {
   const { user, logout } = useContext(UserAuth);
   const dispatch = useDispatch();
+  const currentUser = useSelector((state) => state.userData);
+  console.log("🚀 ~ file: Navbar.jsx:12 ~ Navbar ~ currentUser:", currentUser);
   const menuList = (
     <>
       <li>
@@ -79,7 +81,6 @@ const Navbar = () => {
                 <li>
                   <Link to="/dashboard" className="justify-between">
                     Dashboard
-                    <span className="badge">New</span>
                   </Link>
                 </li>
                 <li>
