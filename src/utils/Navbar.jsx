@@ -9,7 +9,7 @@ const Navbar = () => {
   const { user, logout } = useContext(UserAuth);
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.userData);
-  console.log("🚀 ~ file: Navbar.jsx:12 ~ Navbar ~ currentUser:", currentUser);
+
   const menuList = (
     <>
       <li>
@@ -17,9 +17,6 @@ const Navbar = () => {
       </li>
       <li>
         <Link to="/doctors">Doctors</Link>
-      </li>
-      <li>
-        <Link to="/admin-dashboard">Admin Dashboard</Link>
       </li>
     </>
   );
@@ -79,9 +76,13 @@ const Navbar = () => {
                 className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
               >
                 <li>
-                  <Link to="/dashboard" className="justify-between">
-                    Dashboard
-                  </Link>
+                  {currentUser?.user?.category === "admin" ? (
+                    <Link to="/admin-dashboard">Admin Dashboard</Link>
+                  ) : (
+                    <Link to="/dashboard" className="justify-between">
+                      Dashboard
+                    </Link>
+                  )}
                 </li>
                 <li>
                   <a>Settings</a>
