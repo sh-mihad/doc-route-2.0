@@ -39,7 +39,27 @@ const doctorsApi = apiSlice.injectEndpoints({
                 url:`/applying-doctor/${id}`,
                 method : "PUT",                
             })
-        }) 
+        }),
+        delteDoctor : builder.mutation({
+          query:(id)=>({
+            url:`/doctors/${id}`,
+            method:"DELETE"
+          }),
+          async onQueryStarted(id,{dispatch,queryFulfilled}){
+            const patchResult = dispatch(
+                apiSlice.util.updateQueryData("getDoctors",undefined,(draft)=>{
+                    const deletedDoctorIndex = draft.findIndex(d=>d.id === id)
+                    draft.splice(deletedDoctorIndex,1)
+                })
+            )
+            try{
+                await queryFulfilled
+           }catch(err){
+               patchResult.undo()
+           }
+          }
+        }),
+        
         
     })
 

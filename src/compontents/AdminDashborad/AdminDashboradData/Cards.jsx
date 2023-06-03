@@ -15,6 +15,7 @@ const Cards = () => {
           <CountUp end={doctors?.length} duration={2} />
         </h4>
       </div>
+      x
     </div>
   );
 };
