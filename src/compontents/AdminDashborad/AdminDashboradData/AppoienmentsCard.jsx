@@ -1,6 +1,14 @@
+// import CountUp from "react-countup/build/CountUp";
+import CountUp from "react-countup";
 import { BsFillCalendarCheckFill } from "react-icons/bs";
+import { useGetAllCounsultaionsQuery } from "../../../fetures/consultaionApi/consultationApi";
 
 const AppoienmentsCard = () => {
+  const { data: allConsultations } = useGetAllCounsultaionsQuery();
+  console.log(
+    "🚀 ~ file: AppoienmentsCard.jsx:7 ~ AppoienmentsCard ~ allConsultations:",
+    allConsultations
+  );
   return (
     <div className="my-6 border rounded-lg p-5 flex gap-4 items-center ">
       <div className="bg-yellow-300 p-5 text-white text-5xl rounded-lg">
@@ -8,9 +16,11 @@ const AppoienmentsCard = () => {
       </div>
       <div>
         <p className="text-lg text-gray-700 font-semibold">
-          Totaol Appoienments
+          Total Appoienments
         </p>
-        <h4 className="text-3xl text-gray-900 font-semibold">400</h4>
+        <h4 className="text-3xl text-gray-900 font-semibold">
+          <CountUp end={allConsultations?.length} duration={2} />
+        </h4>
       </div>
     </div>
   );
