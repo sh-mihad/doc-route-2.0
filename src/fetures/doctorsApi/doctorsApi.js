@@ -40,7 +40,7 @@ const doctorsApi = apiSlice.injectEndpoints({
                 method : "PUT",                
             })
         }),
-        delteDoctor : builder.mutation({
+        deleteDoctor : builder.mutation({
           query:(id)=>({
             url:`/doctors/${id}`,
             method:"DELETE"
@@ -65,4 +65,4 @@ const doctorsApi = apiSlice.injectEndpoints({
 
 })
 
-export const { useAddDoctorMutation, useGetDoctorDataQuery,useGetApplyingDoctorQuery, useGetDoctorsQuery, useGetDoctorByEmailQuery, useGetDoctorQuery,useApproveDoctorMutation } = doctorsApi
+export const { useAddDoctorMutation, useGetDoctorDataQuery,useGetApplyingDoctorQuery, useGetDoctorsQuery, useGetDoctorByEmailQuery, useGetDoctorQuery,useApproveDoctorMutation,useDeleteDoctorMutation } = doctorsApi
