@@ -5,10 +5,7 @@ import { useGetAllCounsultaionsQuery } from "../../../fetures/consultaionApi/con
 
 const AppoienmentsCard = () => {
   const { data: allConsultations } = useGetAllCounsultaionsQuery();
-  console.log(
-    "🚀 ~ file: AppoienmentsCard.jsx:7 ~ AppoienmentsCard ~ allConsultations:",
-    allConsultations
-  );
+
   return (
     <div className="my-6 border rounded-lg p-5 flex gap-4 items-center ">
       <div className="bg-yellow-300 p-5 text-white text-5xl rounded-lg">
