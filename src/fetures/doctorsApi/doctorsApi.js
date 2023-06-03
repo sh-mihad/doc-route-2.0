@@ -83,4 +83,4 @@ const doctorsApi = apiSlice.injectEndpoints({
 
 })
 
-export const { useAddDoctorMutation, useGetDoctorDataQuery,useGetApplyingDoctorQuery, useGetDoctorsQuery, useGetDoctorByEmailQuery, useGetDoctorQuery,useApproveDoctorMutation,useDeleteDoctorMutation } = doctorsApi
+export const { useAddDoctorMutation, useGetDoctorDataQuery,useGetApplyingDoctorQuery, useGetDoctorsQuery, useGetDoctorByEmailQuery, useGetDoctorQuery,useApproveDoctorMutation,useDeleteDoctorMutation,useDeleteApplyingDoctorMutation } = doctorsApi
