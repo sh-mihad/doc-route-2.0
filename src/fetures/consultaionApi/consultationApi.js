@@ -17,8 +17,11 @@ const consultaionApi = apiSlice.injectEndpoints({
                 url :`/consulation/${id}`,
                 method: "PUT",
             })
+        }),
+        getAllCounsultaions : builder.query({
+            query : ()=>"/all-consulation"
         })
     })
 })
 
-export const  {useAddCounsultaionMutation,useGetPatientsByEmailQuery,usePatientsUpdateMutation} = consultaionApi
+export const  {useAddCounsultaionMutation,useGetPatientsByEmailQuery,usePatientsUpdateMutation,useGetAllCounsultaionsQuery} = consultaionApi
