@@ -11,6 +11,25 @@ const pateintApi = apiSlice.injectEndpoints({
         }),
         getAllPatinets : builder.query({
             query:()=>"/pateint"
+        }),
+        deletePatient : builder.mutation({
+            query:(id)=>({
+                url : `/pateint/${id}`,
+                method:"DELETE",
+            }),
+            async onQueryStarted(id,{dispatch,queryFulfilled}){
+                const patchResult = dispatch(
+                    apiSlice.util.updateQueryData("getAllPatinets",undefined,(draft)=>{
+                        const deletedDoctorIndex = draft.findIndex(d=>d.id === id)
+                        draft.splice(deletedDoctorIndex,1)
+                    })
+                )
+                try{
+                    await queryFulfilled
+               }catch(err){
+                   patchResult.undo()
+               }
+              }
         })
     })
         
