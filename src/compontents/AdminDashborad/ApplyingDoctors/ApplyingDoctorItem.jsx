@@ -10,7 +10,12 @@ const ApplyingDoctorItem = ({ doctor }) => {
   };
 
   const handleDelete = () => {
-    deleteApplyingDoctor(_id);
+    const confirmBox = confirm(
+      `Do you want to delete  ${name.toUpperCase()}  from our system?`
+    );
+    if (confirmBox) {
+      deleteApplyingDoctor(_id);
+    }
   };
 
   return (

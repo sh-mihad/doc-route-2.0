@@ -6,7 +6,12 @@ const AllDoctorTr = ({ doctor }) => {
   const [deleteDoctor] = useDeleteDoctorMutation();
 
   const handleDelete = () => {
-    deleteDoctor(_id);
+    const confirmBox = confirm(
+      `Do you want to delete  ${name.toUpperCase()}  from our system?`
+    );
+    if (confirmBox) {
+      deleteDoctor(_id);
+    }
   };
   return (
     <tr>
