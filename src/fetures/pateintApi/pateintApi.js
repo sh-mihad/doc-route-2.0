@@ -20,8 +20,8 @@ const pateintApi = apiSlice.injectEndpoints({
             async onQueryStarted(id,{dispatch,queryFulfilled}){
                 const patchResult = dispatch(
                     apiSlice.util.updateQueryData("getAllPatinets",undefined,(draft)=>{
-                        const deletedDoctorIndex = draft.findIndex(d=>d.id === id)
-                        draft.splice(deletedDoctorIndex,1)
+                        const deletePatient = draft.findIndex(d=>d.id === id)
+                        draft.splice(deletePatient,1)
                     })
                 )
                 try{

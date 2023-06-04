@@ -6,8 +6,10 @@ const PatientsItem = ({ patient }) => {
   const [deletePatient] = useDeletePatientMutation();
 
   const handlePatientDelete = () => {
-    const pName = confirm("ddddddddd");
-    if (pName) {
+    const confirmBox = confirm(
+      `Do you want to delete  ${name.toUpperCase()}  from our system?`
+    );
+    if (confirmBox) {
       deletePatient(_id);
     }
   };
