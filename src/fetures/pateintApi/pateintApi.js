@@ -35,4 +35,4 @@ const pateintApi = apiSlice.injectEndpoints({
         
 })
 
-export const {useAddPateintMutation,useGetAllPatinetsQuery} = pateintApi
+export const {useAddPateintMutation,useGetAllPatinetsQuery,useDeletePatientMutation} = pateintApi

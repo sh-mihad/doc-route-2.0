@@ -1,7 +1,17 @@
 import { RxCheck, RxCross2 } from "react-icons/rx";
+import { useDeletePatientMutation } from "../../../fetures/pateintApi/pateintApi";
 
 const PatientsItem = ({ patient }) => {
-  const { name, image, address, email, phone } = patient || {};
+  const { _id, name, image, address, email, phone } = patient || {};
+  const [deletePatient] = useDeletePatientMutation();
+
+  const handlePatientDelete = () => {
+    const pName = confirm("ddddddddd");
+    if (pName) {
+      deletePatient(_id);
+    }
+  };
+
   return (
     <tr>
       <td>
@@ -24,7 +34,10 @@ const PatientsItem = ({ patient }) => {
         <button className="px-3 bg-green-200 text-green-500 rounded-xl flex gap-1 items-center">
           <RxCheck /> Make an Admin
         </button>
-        <button className="px-3 bg-red-300 text-red-500 rounded-xl flex gap-1 items-center">
+        <button
+          onClick={handlePatientDelete}
+          className="px-3 bg-red-300 text-red-500 rounded-xl flex gap-1 items-center"
+        >
           <RxCross2 /> Remove Patient
         </button>
       </td>
