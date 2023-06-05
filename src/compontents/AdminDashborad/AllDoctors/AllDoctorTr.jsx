@@ -5,6 +5,7 @@ const AllDoctorTr = ({ doctor }) => {
   const { _id, name, email, image, address, specialist } = doctor || {};
   const [deleteDoctor] = useDeleteDoctorMutation();
 
+  // delte handler
   const handleDelete = () => {
     const confirmBox = confirm(
       `Do you want to delete  ${name.toUpperCase()}  from our system?`
