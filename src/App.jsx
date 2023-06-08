@@ -10,6 +10,7 @@ import DoctorAllAppoienments from "./Pages/Dashboard/DoctorAllAppoienments";
 import DoctorDashboard from "./Pages/Dashboard/DoctorDashboard";
 import DoctorProfileSettings from "./Pages/Dashboard/DoctorProfileSettings";
 import DoctorScheduleTimings from "./Pages/Dashboard/DoctorScheduleTimings";
+import DiseaseDitaction from "./Pages/DiseaseDitaction/DiseaseDitaction";
 import DoctorProfile from "./Pages/DoctorProfile/DoctorProfile";
 import Doctors from "./Pages/Doctors/Doctors";
 import Home from "./Pages/Home/Home";
@@ -52,6 +53,7 @@ function App() {
         >
           <Route path="/" element={<Home />} />
           <Route path="/doctors" element={<Doctors />} />
+          <Route path="/ditaction" element={<DiseaseDitaction />} />
           <Route path="/add-doctor" element={<AddDoctor />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />

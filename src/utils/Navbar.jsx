@@ -18,6 +18,9 @@ const Navbar = () => {
       <li>
         <Link to="/doctors">Doctors</Link>
       </li>
+      <li>
+        <Link to="/ditaction">Detaction</Link>
+      </li>
     </>
   );
 

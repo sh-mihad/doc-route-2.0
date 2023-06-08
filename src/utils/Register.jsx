@@ -64,6 +64,7 @@ const Register = () => {
       .then((response) => response.json())
       .then((result) => {
         const image = result.data.display_url;
+        console.log(image);
         if (result.success) {
           createUserAccount(email, password)
             .then((res) => {
