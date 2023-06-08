@@ -19,7 +19,7 @@ const AboutUs = () => {
         <div className="w-full lg:w-8/12 ">
           <img
             className="w-full h-full"
-            src="https://i.ibb.co/FhgPJt8/Rectangle-116.png"
+            src="https://img.freepik.com/free-photo/doctor-giving-presentation-team-interim-doctors_107420-84781.jpg"
             alt="A group of People"
           />
         </div>
