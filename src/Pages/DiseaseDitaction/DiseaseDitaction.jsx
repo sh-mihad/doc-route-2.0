@@ -1,29 +1,80 @@
-import axios from "axios";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import DiseaseItem from "./DiseaseItem";
 
 const DiseaseDitaction = () => {
-  const fetchSERPResults = () => {
-    const apiKey =
-      "1f9bc3b81ef1247ae5bac893ec4b862e645f521cc40a585bbee0156ebb9c7f15";
-    const searchEngine = "google";
-    const searchQuery = "bird";
+  const [loading, setLoading] = useState(false);
+  const [diseaseData, setDiseaseData] = useState([]);
+  const [userProvide, setUserProvide] = useState(null);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
-    const apiUrl = `https://serpapi.com/search?engine=${searchEngine}&q=${searchQuery}&api_key=${apiKey}`;
-
-    axios
-      .get(apiUrl)
-      .then((response) => {
-        // Handle the API response
-        console.log(response.data);
-      })
-      .catch((error) => {
-        // Handle any errors that occurred during the API request
-        console.error(error);
+  const submitForm = (data) => {
+    setLoading(true);
+    const formData = new FormData();
+    formData.append("image", data.photo[0]);
+    fetch(
+      "https://api.imgbb.com/1/upload?key=2fbe1796a4bf3cd52ba5028ba7992a29",
+      {
+        method: "POST",
+        body: formData,
+      }
+    )
+      .then((response) => response.json())
+      .then((result) => {
+        const image = result.data.display_url;
+        setUserProvide(image);
+        if (image.length > 0) {
+          fetch(`http://localhost:5000/detaction?url=${image}`)
+            .then((response) => response.json())
+            .then((result) => {
+              setDiseaseData(result);
+              setLoading(false);
+            });
+        }
       });
   };
 
+  // console.log(diseaseData);
   return (
-    <div>
-      <button onClick={fetchSERPResults}>click</button>
+    <div className="">
+      <h1>Find your Desiase</h1>
+      <div className="w-2/4 mx-auto mb-10">
+        {userProvide?.length > 0 && (
+          <img src={`${userProvide}`} width={200} height={200} alt="" />
+        )}
+        <form onSubmit={handleSubmit(submitForm)}>
+          <label className="label">
+            <span className="label-text">Upload Photo</span>
+          </label>
+          <input
+            type="file"
+            className="file-input w-full border-gray-400"
+            placeholder="email"
+            {...register("photo", {
+              required: "Invalid this fild",
+            })}
+          />
+          {errors.photo && (
+            <p className="text-sm mt-2 text-red-700">{errors.photo.message}</p>
+          )}
+          <button
+            disabled={loading}
+            type="submit"
+            className="w-full my-5 py-2 text-white rounded-md bg-blue-500 hover:bg-blue-400 duration-300"
+          >
+            {loading ? "Loading.." : "Find Your Disease"}
+          </button>
+        </form>
+      </div>
+      <div className="grid grid-cols-1 lg:grid-cols-5">
+        {diseaseData?.map((data) => (
+          <DiseaseItem key={data.position} data={data} />
+        ))}
+      </div>
     </div>
   );
 };
