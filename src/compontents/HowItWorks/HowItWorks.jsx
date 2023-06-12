@@ -24,11 +24,11 @@ const HowItWorks = () => {
               </div>
               <div className="flex mt-12 flex-col items-center lg:items-end md:w-8/12">
                 <h1 className="focus:outline-none text-xl font-bold leading-5">
-                  Create a Wallet
+                  Book an Appoienment
                 </h1>
                 <h2 className="focus:outline-none text-gray-500 mt-3 pl-3 text-center md:text-right text-base leading-6 tracking-wide">
-                  Create a wallet by linking a payment method that you’re
-                  comfortable with. Paypal, Visa and more{" "}
+                  Book an Appoienmnet for your Disease.We have lots of Doctor.
+                  You can Book appoienment with your flexiable time{" "}
                 </h2>
               </div>
               <div aria-label="transactions" role="img">
@@ -76,11 +76,11 @@ const HowItWorks = () => {
               </div>
               <div className="flex mt-6 flex-col items-center md:items-start md:w-8/12">
                 <h1 className="focus:outline-none text-xl font-bold leading-5">
-                  Start your Transactions
+                  Getitng Service
                 </h1>
                 <h2 className="focus:outline-none text-gray-500 mt-3 text-base leading-6 tracking-wide">
-                  Start transactions right away. No more complicated process for
-                  anything else.
+                  Now your time for getting service or counsulting from our
+                  expert and Doctors.
                 </h2>
               </div>
             </div>
@@ -115,11 +115,11 @@ const HowItWorks = () => {
             />
             <div className="mt-10">
               <h1 className="text-xl tracking-wide text-center leading-5 font-bold">
-                Create a Wallet
+                Book an Appoienment
               </h1>
               <h2 className="text-gray-500 mt-3 pl-3 text-center text-base leading-6 tracking-wide">
-                Create a wallet by linking a payment method that you’re
-                comfortable with. Paypal, Visa and more
+                Book an Appoienmnet for your Disease.We have lots of Doctor. You
+                can Book appoienment with your flexiable time{" "}
               </h2>
             </div>
             <img
@@ -134,11 +134,11 @@ const HowItWorks = () => {
             />
             <div className="flex mt-10 flex-col items-center md:items-start md:w-8/12">
               <h1 className="text-xl text-center tracking-wide leading-5 font-bold">
-                Start your Transactions
+                Getitng Service
               </h1>
               <h2 className="text-gray-500 mt-3 text-center text-base leading-6 tracking-wide">
-                Start transactions right away. No more complicated process for
-                anything else.
+                Now your time for getting service or counsulting from our expert
+                and Doctors.
               </h2>
             </div>
           </div>
