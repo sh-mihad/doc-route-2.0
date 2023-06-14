@@ -8,7 +8,7 @@ const doctorsApi = apiSlice.injectEndpoints({
         }),
 
         getDoctorData: builder.query({
-            query: (email) => `http://localhost:5000/doctors-login?email=${email}`
+            query: (email) => `https://doc-route-server.vercel.app/doctors-login?email=${email}`
         }),
 
         getDoctorByEmail: builder.query({

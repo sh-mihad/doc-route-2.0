@@ -10,10 +10,10 @@ const usersApi = apiSlice.injectEndpoints({
             })
         }),
         getUserData : builder.query({
-            query:(email)=>`http://localhost:5000/users?email=${email}`,
+            query:(email)=>`https://doc-route-server.vercel.app/users?email=${email}`,
         }),
         getUserDataById : builder.query({
-            query:(id)=>`http://localhost:5000/users/${id}`,
+            query:(id)=>`https://doc-route-server.vercel.app/users/${id}`,
         }),
         deletUser : builder.mutation({
             query:(id)=>({

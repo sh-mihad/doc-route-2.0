@@ -28,7 +28,7 @@ const DiseaseDitaction = () => {
         const image = result.data.display_url;
         setUserProvide(image);
         if (image.length > 0) {
-          fetch(`http://localhost:5000/detaction?url=${image}`)
+          fetch(`https://doc-route-server.vercel.app/detaction?url=${image}`)
             .then((response) => response.json())
             .then((result) => {
               setDiseaseData(result);
