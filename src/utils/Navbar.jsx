@@ -9,17 +9,20 @@ const Navbar = () => {
   const { user, logout } = useContext(UserAuth);
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.userData);
+  console.log(currentUser);
 
   const menuList = (
     <>
       <li>
         <Link to="/">Home</Link>
       </li>
+      {currentUser?.user?.category === "patient" && (
+        <li>
+          <Link to="/ditaction">Detection</Link>
+        </li>
+      )}
       <li>
         <Link to="/doctors">Doctors</Link>
-      </li>
-      <li>
-        <Link to="/ditaction">Detaction</Link>
       </li>
     </>
   );

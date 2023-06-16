@@ -23,11 +23,13 @@ const Appoienment = () => {
               Make an appointment Today
             </h1>
             <p className="text-white py-6">
-              It is a long established fact that a reader will be distracted by
-              the readable content of a page when looking at its layout. The
-              point of using Lorem Ipsumis that it has a more-or-less normal
-              distribution of letters,as opposed to using , making it look like
-              readable English. Many desktop publishing packages and web page
+              At DocRoute, we are committed to revolutionizing the healthcare
+              experience by offering a convenient and user-friendly platform for
+              online doctor appointment booking, connecting patients with
+              qualified medical professionals." "With a strong emphasis on
+              efficiency, accessibility, and quality of care, we strive to
+              enhance the patient-doctor relationship, making healthcare more
+              accessible, convenient, and tailored to individual preferences.
             </p>
             <Link to="/doctors">
               <button className="inline-flex items-center justify-center w-full h-12 px-6 mb-3 font-medium tracking-wide text-white transition duration-200 rounded shadow-md md:w-auto md:mr-4 md:mb-0 bg-rose-500 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none">
