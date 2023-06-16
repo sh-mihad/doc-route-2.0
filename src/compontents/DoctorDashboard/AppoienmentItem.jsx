@@ -1,5 +1,4 @@
 import { MdRemoveRedEye } from "react-icons/md";
-import { RxCheck, RxCross2 } from "react-icons/rx";
 import { useGetUserDataQuery } from "../../fetures/usersApi/usersApi";
 import PateintModal from "./PateintModal";
 
@@ -54,12 +53,15 @@ const AppoienmentItem = ({ patient }) => {
           patietnDisease={patietnDisease}
         />
         {/* <label htmlFor="my-modal-3" className="btn">open modal</label> */}
-        <button className="px-3 bg-green-200 text-green-500 rounded-xl flex gap-1 items-center">
+        {/* <button
+          onClick={handleDone}
+          className="px-3 bg-green-200 text-green-500 rounded-xl flex gap-1 items-center"
+        >
           <RxCheck /> Done
         </button>
         <button className="px-3 bg-red-300 text-red-500 rounded-xl flex gap-1 items-center">
           <RxCross2 /> Cancel
-        </button>
+        </button> */}
       </td>
     </tr>
   );

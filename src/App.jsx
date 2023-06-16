@@ -6,7 +6,6 @@ import Dashboard from "./Layout/Dashboard";
 import AddDoctor from "./Pages/AddDoctor/AddDoctor";
 import AdminDashboard from "./Pages/AdminDashboard/AdminDashboard";
 import AppoienmentPage from "./Pages/Appoientment/AppoienmentPage";
-import DoctorAllAppoienments from "./Pages/Dashboard/DoctorAllAppoienments";
 import DoctorDashboard from "./Pages/Dashboard/DoctorDashboard";
 import DoctorProfileSettings from "./Pages/Dashboard/DoctorProfileSettings";
 import DoctorScheduleTimings from "./Pages/Dashboard/DoctorScheduleTimings";
@@ -78,14 +77,14 @@ function App() {
         >
           <Route path="/dashboard" element={<DoctorDashboard />}>
             <Route index element={<DashboardData />} />
-            <Route
+            {/* <Route
               path="/dashboard/all-appoienments"
               element={
                 <PrivetRoutes>
                   <DoctorAllAppoienments />
                 </PrivetRoutes>
               }
-            />
+            /> */}
             <Route
               path="/dashboard/doc-profile-settings"
               element={

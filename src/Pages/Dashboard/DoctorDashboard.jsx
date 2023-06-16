@@ -1,6 +1,5 @@
 import {
   MdDashboardCustomize,
-  MdEditCalendar,
   MdMoreTime,
   MdOutlineLogout,
   MdSettings,
@@ -19,7 +18,7 @@ const DashboardData = () => {
           Dashboard
         </Link>
       </li>
-      <li className="border-t py-3 text-md font-semibold hover:text-blue-400">
+      {/* <li className="border-t py-3 text-md font-semibold hover:text-blue-400">
         <Link
           to="/dashboard/all-appoienments"
           className="px-5 gap-2 flex items-center"
@@ -27,7 +26,7 @@ const DashboardData = () => {
           <MdEditCalendar />
           All Aopoienments
         </Link>
-      </li>
+      </li> */}
       <li className="border-t py-3 text-md font-semibold hover:text-blue-400">
         <Link
           to="/dashboard/doc-profile-settings"

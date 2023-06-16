@@ -108,7 +108,7 @@ const CheckoutModal = ({ doctor, selected, slot }) => {
                       {...register("blood", {})}
                     >
                       <option value="" hidden>
-                        Select specialist{" "}
+                        Select Blood{" "}
                       </option>
                       <option value="A+">A+</option>
                       <option value="O+">O+</option>
