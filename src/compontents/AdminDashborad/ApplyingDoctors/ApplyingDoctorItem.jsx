@@ -1,12 +1,16 @@
 import { RxCheck, RxCross2 } from "react-icons/rx";
-import { useDeleteApplyingDoctorMutation } from "../../../fetures/doctorsApi/doctorsApi";
+import {
+  useApproveDoctorMutation,
+  useDeleteApplyingDoctorMutation,
+} from "../../../fetures/doctorsApi/doctorsApi";
 
 const ApplyingDoctorItem = ({ doctor }) => {
   const { _id, name, image, specialist, email, phone } = doctor || {};
   const [deleteApplyingDoctor] = useDeleteApplyingDoctorMutation();
+  const [approveDoctor] = useApproveDoctorMutation();
 
   const handleApproveDoctor = () => {
-    deleteApplyingDoctor(_id);
+    approveDoctor(_id);
   };
 
   const handleDelete = () => {
